@@ -1089,7 +1089,7 @@
 		</widget>
 		<widget source="session.Event_Now" render="Label" position="1195,900" size="150,30" font="Global; 25" foregroundColor="color2" backgroundColor="background1" halign="right" transparent="1">
 			<convert type="EventTime">Remaining</convert>
-			<convert type="RemainingToText">InMinutes</convert>
+			<convert type="RemainingToText"></convert>
 		</widget>
 		<panel name="TemplatesInfoBarTvProgressLayer" />
 		<widget source="session.Event_Now" render="Progress" position="355,935" size="990,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
