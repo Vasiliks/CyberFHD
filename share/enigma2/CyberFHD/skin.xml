@@ -28,16 +28,16 @@
 		<color name="background1" value="#50000000" />
 		<color name="background2" value="#50696969" />
 		<color name="background3" value="#50ffffff" />
-		<color name="background4" value="#5000ffff" />
+		<color name="background4" value="#0000ffff" />
 		<color name="background5" value="#50696969" />
 		<color name="black" value="#00000000" />
 		<color name="blue" value="#000000ff" />
 		<color name="color" value="#00ffffff" />
-		<color name="color1" value="#10ffd700" />
-		<color name="color2" value="#10f5f5f5" />
-		<color name="color3" value="#10a9a9a9" />
-		<color name="color4" value="#1000ffff" />
-		<color name="color5" value="#10ffffff" />
+		<color name="color1" value="#00ffd700" />
+		<color name="color2" value="#00f5f5f5" />
+		<color name="color3" value="#00a9a9a9" />
+		<color name="color4" value="#0000ffff" />
+		<color name="color5" value="#50ffffff" />
 		<color name="gray" value="#00808080" />
 		<color name="green" value="#00008000" />
 		<color name="red" value="#00ff0000" />
@@ -423,6 +423,7 @@
 		<panel name="TemplatesUpLayer1" />
 		<panel name="TemplatesVolumeProgressLayer" />
 		<widget name="Volume" position="220,100" size="1350,30" foregroundColor="color4" backgroundColor="color5" transparent="1" zPosition="2" />
+		<widget source="global.CurrentTime" render="RendVolumeTextP" position="60,94" size="120,50" font="Indication; 50" foregroundColor="color4" backgroundColor="background" halign="right" transparent="1" />
 		<panel name="TemplatesClock" />
 	</screen>
 	<!-- ########## Channel selection - Tv ##########-->
@@ -499,7 +500,11 @@
 		<widget source="global.CurrentTime" render="Label" position="655,95" size="90,50" font="Indication; 50" foregroundColor="color1" backgroundColor="background" halign="right" transparent="1">
 			<convert type="ClockToText">Format:%H</convert>
 		</widget>
-		<eLabel text=":" position="750,95" size="20,50" font="Indication; 50" foregroundColor="color1" backgroundColor="background" halign="center" transparent="1" zPosition="-1" />
+		<eLabel text=":" position="750,95" size="20,50" font="Indication; 50" foregroundColor="gray" backgroundColor="background" halign="center" transparent="1" zPosition="-1" />
+		<widget source="global.CurrentTime" render="FixedLabel" text=":" position="750,95" size="20,50" font="Indication; 50" foregroundColor="color1" backgroundColor="background" halign="center" transparent="1">
+			<convert type="AlwaysTrue"></convert>
+			<convert type="ConditionalShowHide">Blink</convert>
+		</widget>
 		<widget source="global.CurrentTime" render="Label" position="775,95" size="90,50" font="Indication; 50" foregroundColor="color1" backgroundColor="background" halign="left" transparent="1">
 			<convert type="ClockToText">Format:%M</convert>
 		</widget>
@@ -701,6 +706,46 @@
 	<screen name="menu_information" position="fill" title="Main menu" backgroundColor="transparent" flags="wfNoBorder">
 		<eLabel text="i" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
 		<panel name="TemplatesMainMenuSetup" />
+		<eLabel text="Memory Info" position="615,505" size="725,30" font="Titles; 30" foregroundColor="color1" backgroundColor="background1" halign="left" transparent="1" />
+		<panel name="TemplatesMemoryProgressLayer" />
+		<!-- Layer Memory Info -->
+		<eLabel position="603,493" size="1240,354" backgroundColor="background3" zPosition="-12" />
+		<eLabel position="605,495" size="1235,350" backgroundColor="background1" zPosition="-11" />
+		<eLabel position="610,540" size="1225,300" backgroundColor="background2" zPosition="-10" />
+		<!-- Layer Memory Info Right -->
+		<eLabel position="1840,493" size="80,354" backgroundColor="background3" zPosition="-12" />
+		<eLabel position="1840,495" size="80,350" backgroundColor="background1" zPosition="-11" />
+		<eLabel position="1840,540" size="70,300" backgroundColor="background2" zPosition="-10" />
+		<widget source="session.Event_Now" render="Progress" position="615,545" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+			<convert type="ProgressDiskSpaceInfo">FleshInfo</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="620,545" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
+			<convert type="ProgressDiskSpaceInfo">Flesh,Full</convert>
+		</widget>
+		<widget source="session.Event_Now" render="Progress" position="615,605" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+			<convert type="ProgressDiskSpaceInfo">MemTotal</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="620,605" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
+			<convert type="ProgressDiskSpaceInfo">MemTotal,Full</convert>
+		</widget>
+		<widget source="session.Event_Now" render="Progress" position="615,665" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+			<convert type="ProgressDiskSpaceInfo">SwapTotal</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="620,665" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
+			<convert type="ProgressDiskSpaceInfo">SwapTotal,Full</convert>
+		</widget>
+		<widget source="session.Event_Now" render="Progress" position="615,725" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+			<convert type="ProgressDiskSpaceInfo">UsbInfo</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="620,725" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
+			<convert type="ProgressDiskSpaceInfo">UsbInfo,Full</convert>
+		</widget>
+		<widget source="session.Event_Now" render="Progress" position="615,785" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+			<convert type="ProgressDiskSpaceInfo">HddInfo</convert>
+		</widget>
+		<widget source="session.CurrentService" render="Label" position="620,785" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
+			<convert type="ProgressDiskSpaceInfo">HddInfo,Full</convert>
+		</widget>
 	</screen>
 	<!-- Menu Setup -->
 	<screen name="menu_setup" position="fill" title="Main menu" backgroundColor="transparent" flags="wfNoBorder">
@@ -1033,8 +1078,8 @@
 		<panel name="TemplatesClock" />
 	</screen>
 	<!-- ########## Message ########## -->
+	<!-- Templates Message  -->
 	<screen name="TemplatesMessage">
-		<!-- Templates Message  -->
 		<widget source="Title" render="Label" position="10,10" size="700,70" font="Titles; 30" foregroundColor="color1" backgroundColor="background1" transparent="1" />
 		<widget name="text" position="10,80" size="700,0" font="Global;25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
 		<widget name="ErrorPixmap" text="!" position="0,10" size="220,180" font="Icons; 110" foregroundColor="background3" backgroundColor="background2" halign="center" valign="center" transparent="1" />
@@ -1114,7 +1159,7 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
+self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheight)//2))
 		</applet>
 	</screen>
 	<!-- Message Box -->
@@ -1906,9 +1951,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			<convert type="TemplatedMultiContent">
 				{"template": [
 					MultiContentEntryPixmapAlphaTest(pos = (10, 5), size = (48, 48), png = 1), # index 1 is the expandable/expanded/verticalline icon
-					MultiContentEntryText(pos = (80, 15), size = (900, 35), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2), # index 2 is the Hostname
-					MultiContentEntryText(pos = (160, 0), size = (800, 35), font=0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3), # index 3 is the sharename
-					MultiContentEntryText(pos = (170, 35), size = (790, 25), font=1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4), # index 4 is the sharedescription
+					MultiContentEntryText(pos = (80, 15), size = (900, 35), font= 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 2), # index 2 is the Hostname
+					MultiContentEntryText(pos = (160, 0), size = (800, 35), font= 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 3), # index 3 is the sharename
+					MultiContentEntryText(pos = (170, 35), size = (790, 25), font= 1, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 4), # index 4 is the sharedescription
 					MultiContentEntryPixmapAlphaTest(pos = (65, 5), size = (48, 48), png = 5), # index 5 is the nfs/cifs icon
 					MultiContentEntryPixmapAlphaTest(pos = (110, 5), size = (48, 48), png = 6)], # index 6 is the isMounted icon
 					"fonts": [gFont("Global", 25), gFont("Console", 20)],
@@ -2396,6 +2441,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 					"itemHeight": 90}
 			</convert>
 		</widget>
+		<panel name="TemplatesButtonsMenu" />
 		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
 	</screen>
@@ -2801,9 +2847,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="TemplatesTitle" />
 		<widget name="config" position="90,200" size="980,600" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" itemHeight="60" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" transparent="1" />
 		<widget name="description" position="340,955" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
-		<panel name="TemplatesButtonsRed" />
-		<panel name="TemplatesButtonsGreen" />
-		<panel name="TemplatesButtons" />
+		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
 	</screen>
 	<!-- Timer Entry -->
@@ -3713,8 +3757,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 	<!-- Config Calendar -->
 	<screen name="ConfigCalendar" position="fill" title="Config Calendar" backgroundColor="transparent" flags="wfNoBorder">
 		<panel name="TemplatesMenu1000Layer" />
-		<panel name="TemplatesTitle" />
 		<eLabel text="S" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
+		<panel name="TemplatesTitle" />
 		<widget name="config" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
 		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
@@ -3979,7 +4023,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel text="e" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
 		<panel name="TemplatesTitle" />
 		<widget name="config" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
-		<panel name="TemplatesButtonsKey" />
+		<panel name="TemplatesButtonsRed" />
+		<panel name="TemplatesButtonsGreen" />
+		<panel name="TemplatesButtons" />
 		<panel name="TemplatesClock" />
 	</screen>
 	<!-- EPG Import Log -->
@@ -4069,7 +4115,6 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel text="e" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
 		<panel name="TemplatesTitle" />
 		<widget name="accounts" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
-		<panel name="TemplatesButtonsMenu" />
 		<panel name="TemplatesHelpWindow" />
 		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
@@ -4997,15 +5042,6 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
 	</screen>
-	<!-- Log Manager Fb -->
-	<screen name="LogManagerFb" position="fill" title="Log Manager Fb" backgroundColor="transparent" flags="wfNoBorder">
-		<panel name="TemplatesMenu1000Layer" />
-		<eLabel text="S" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
-		<panel name="TemplatesTitle" />
-		<widget name="list" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
-		<panel name="TemplatesButtonsKey" />
-		<panel name="TemplatesClock" />
-	</screen>
 	<!-- ########## Kodi ########## -->
 	<!-- Kodi -->
 	<screen name="KodiSetupScreen" position="fill" title="Kodi Settings" backgroundColor="transparent" flags="wfNoBorder">
@@ -5104,10 +5140,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<panel name="TemplatesMenu1000Layer" />
 		<eLabel text="S" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
 		<panel name="TemplatesTitle" />
-		<panel name="TemplatesButtonsRed" />
-		<panel name="TemplatesButtonsGreen" />
 		<widget name="config" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
-		<panel name="TemplatesButtons" />
+		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
 	</screen>
 	<!-- Merlin Music Player ScreenSaver -->
@@ -5126,9 +5160,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="label1" position="125,205" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
 		<eLabel position="90,520" size="980,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,525" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
-		<widget name="label2" position="90,245" size="980,275" font="Global; 25" foregroundColor="color2" backgroundColor="background1" transparent="1" />
-		<widget name="nextboot" position="125,525" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
-		<widget source="list" render="Listbox" position="90,565" size="980,275" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1">
+		<widget name="label2" position="90,245" size="980,270" font="Global; 25" foregroundColor="color2" backgroundColor="background1" transparent="1" />
+		<widget name="nextboot" position="125,520" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
+		<widget source="list" render="Listbox" position="90,560" size="980,280" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1">
 			<convert type="StringList" />
 		</widget>
 		<widget name="key_ok" position="340,895" size="1000,90" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="bottom" transparent="1" />
@@ -5687,12 +5721,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<eLabel text="t" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
 		<panel name="TemplatesTitle" />
 		<widget source="list" render="Listbox" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1">
-			<convert type="TemplatedMultiContent">
-				{"template": [
-					MultiContentEntryText(pos = (10, 0), size = (950, 35), font = 0, flags = RT_HALIGN_LEFT | RT_VALIGN_CENTER, text = 0)], # index 0 is the name
-					"fonts": [gFont("Global", 30)
-					"itemHeight": 35}
-			</convert>
+			<convert type="StringList" />
 		</widget>
 		<widget name="lab1" position="340,925" size="150,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<widget name="labdisabled" position="490,925" size="172,25" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="top" zPosition="2" />
@@ -6977,7 +7006,6 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="stars" position="95,680" size="210,21" pixmap="/usr/lib/enigma2/python/Plugins/Extensions/TMBD/starsbar_filled.png" transparent="1" alphatest="on" zPosition="3" />
 		<widget name="ratinglabel" position="95,710" size="300,30" font="Global; 25" halign="left" foregroundColor="color2" backgroundColor="background2" transparent="1" />
 		<widget name="voteslabel" position="95,745" size="300,60" font="Global; 25" halign="left" foregroundColor="color2" backgroundColor="background2" transparent="1" />
-		<panel name="TemplatesButtonsBlue" />
 		<panel name="TemplatesButtonsInfo" />
 		<panel name="TemplatesButtonsMenu" />
 		<panel name="TemplatesButtonsKey" />
@@ -7307,6 +7335,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 			</convert>
 		</widget>
 		<widget name="thumbnail" position="90,200" size="150,108" />
+		<panel name="TemplatesButtonsInfo" />
+		<panel name="TemplatesButtonsMenu" />
 		<panel name="TemplatesHelpWindow" />
 		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />

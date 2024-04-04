@@ -1159,7 +1159,7 @@ self["list"].instance.resize(eSize(*listsize))
 # center window
 newwidth = wsize[0]
 newheight = wsize[1]
-self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight)/2))
+self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheight)//2))
 		</applet>
 	</screen>
 	<!-- Message Box -->
@@ -5160,9 +5160,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)/2,int(deskheight - newheight
 		<widget name="label1" position="125,205" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
 		<eLabel position="90,520" size="980,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,525" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
-		<widget name="label2" position="90,245" size="980,275" font="Global; 25" foregroundColor="color2" backgroundColor="background1" transparent="1" />
-		<widget name="nextboot" position="125,525" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
-		<widget source="list" render="Listbox" position="90,565" size="980,275" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1">
+		<widget name="label2" position="90,245" size="980,270" font="Global; 25" foregroundColor="color2" backgroundColor="background1" transparent="1" />
+		<widget name="nextboot" position="125,520" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
+		<widget source="list" render="Listbox" position="90,560" size="980,280" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1">
 			<convert type="StringList" />
 		</widget>
 		<widget name="key_ok" position="340,895" size="1000,90" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="bottom" transparent="1" />
