@@ -5158,7 +5158,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<eLabel position="90,200" size="980,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,205" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget name="label1" position="125,205" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
-		<eLabel position="90,520" size="980,40" backgroundColor="background2" zPosition="-1" />
+		<eLabel position="90,515" size="980,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,525" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget name="label2" position="90,245" size="980,270" font="Global; 25" foregroundColor="color2" backgroundColor="background1" transparent="1" />
 		<widget name="nextboot" position="125,520" size="940,30" font="Titles; 25" foregroundColor="color2" backgroundColor="background2" transparent="1" />
