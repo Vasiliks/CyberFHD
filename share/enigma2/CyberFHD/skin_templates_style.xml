@@ -5535,14 +5535,14 @@
 		<widget source="session.FrontendStatus" render="Label" position="1495,880" size="150,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
-		<widget source="session.FrontendStatus" render="Progress" position="1490,880" size="320,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.FrontendStatus" render="Progress" position="1490,880" size="320,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<eLabel text="AGC" position="1375,960" size="105,30" font="Titles; 30" foregroundColor="color1" backgroundColor="background1" halign="center" transparent="1" />
 		<widget source="session.FrontendStatus" render="Label" position="1495,950" size="150,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="FrontendInfo">AGC</convert>
 		</widget>
-		<widget source="session.FrontendStatus" render="Progress" position="1490,950" size="320,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.FrontendStatus" render="Progress" position="1490,950" size="320,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="FrontendInfo">AGC</convert>
 		</widget>
 	</screen>
@@ -5703,7 +5703,7 @@
 			<convert type="RemainingToText">InMinutes</convert>
 		</widget>
 		<panel name="TemplatesInfoBarTvProgressLayer" />
-		<widget source="session.Event_Now" render="Progress" position="355,935" size="990,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.Event_Now" render="Progress" position="355,935" size="990,15" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget source="session.Event_Next" render="Label" position="355,955" size="80,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1">
@@ -6375,7 +6375,7 @@
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<panel name="TemplatesInfoBarMediaProgressLayer" />
-		<widget source="session.CurrentService" render="Progress" position="355,935" size="1450,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.CurrentService" render="Progress" position="355,935" size="1450,15" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="355,957" size="150,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1">
@@ -6697,7 +6697,7 @@
 		<!-- Templates Signal Finder -->
 		<eLabel text="Tuner Info" position="1115,575" size="325,30" font="Titles; 30" foregroundColor="color1" backgroundColor="background1" halign="left" transparent="1" />
 		<panel name="TemplatesSignalFinderProgressLayer" />
-		<widget source="Frontend" render="Progress" position="1240,665" size="590,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="Frontend" render="Progress" position="1240,665" size="590,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<widget source="Frontend" render="Label" position="1675,620" size="150,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="right" transparent="1" zPosition="5">
@@ -6707,14 +6707,14 @@
 		<widget source="Frontend" render="Label" position="1245,665" size="150,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
-		<widget source="Frontend" render="Progress" position="1240,725" size="590,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="Frontend" render="Progress" position="1240,725" size="590,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="FrontendInfo">AGC</convert>
 		</widget>
 		<eLabel text="AGC:" position="1110,737" size="120,30" font="Titles; 30" foregroundColor="color1" backgroundColor="background1" halign="center" transparent="1" />
 		<widget source="Frontend" render="Label" position="1245,725" size="150,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="FrontendInfo">AGC</convert>
 		</widget>
-		<widget source="Frontend" render="Progress" position="1240,785" size="590,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="Frontend" render="Progress" position="1240,785" size="590,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="FrontendInfo">BER</convert>
 		</widget>
 		<eLabel text="BER:" position="1110,797" size="120,30" font="Titles; 30" foregroundColor="color1" backgroundColor="background1" halign="center" transparent="1" />
@@ -6742,7 +6742,7 @@
 			<convert type="EventTime">EndTime</convert>
 			<convert type="ClockToText">Format:%H:%M</convert>
 		</widget>
-		<widget source="ServiceEvent" render="Progress" position="1235,477" size="475,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="ServiceEvent" render="Progress" position="1235,477" size="475,15" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 	</screen>

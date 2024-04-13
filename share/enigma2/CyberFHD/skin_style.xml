@@ -214,7 +214,7 @@
 			<convert type="ClockToText">Default</convert>
 		</widget>
 		<panel name="TemplatesInfoBarRadioProgressLayer" />
-		<widget source="session.Event_Now" render="Progress" position="355,935" size="600,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.Event_Now" render="Progress" position="355,935" size="600,15" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<panel name="TemplatesInfoBarRadioIndication" />
@@ -716,31 +716,31 @@
 		<eLabel position="1840,493" size="80,354" backgroundColor="background3" zPosition="-12" />
 		<eLabel position="1840,495" size="80,350" backgroundColor="background1" zPosition="-11" />
 		<eLabel position="1840,540" size="70,300" backgroundColor="background2" zPosition="-10" />
-		<widget source="session.Event_Now" render="Progress" position="615,545" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.Event_Now" render="Progress" position="615,545" size="1215,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="ProgressDiskSpaceInfo">FleshInfo</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="620,545" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="ProgressDiskSpaceInfo">Flesh,Full</convert>
 		</widget>
-		<widget source="session.Event_Now" render="Progress" position="615,605" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.Event_Now" render="Progress" position="615,605" size="1215,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="ProgressDiskSpaceInfo">MemTotal</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="620,605" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="ProgressDiskSpaceInfo">MemTotal,Full</convert>
 		</widget>
-		<widget source="session.Event_Now" render="Progress" position="615,665" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.Event_Now" render="Progress" position="615,665" size="1215,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="ProgressDiskSpaceInfo">SwapTotal</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="620,665" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="ProgressDiskSpaceInfo">SwapTotal,Full</convert>
 		</widget>
-		<widget source="session.Event_Now" render="Progress" position="615,725" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.Event_Now" render="Progress" position="615,725" size="1215,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="ProgressDiskSpaceInfo">UsbInfo</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="620,725" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
 			<convert type="ProgressDiskSpaceInfo">UsbInfo,Full</convert>
 		</widget>
-		<widget source="session.Event_Now" render="Progress" position="615,785" size="1215,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.Event_Now" render="Progress" position="615,785" size="1215,50" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="ProgressDiskSpaceInfo">HddInfo</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="620,785" size="800,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" zPosition="5">
@@ -2561,9 +2561,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<eLabel text="b" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
 		<panel name="TemplatesTitle" />
 		<panel name="TemplatesMenuUpProgressLayer" />
-		<widget name="slider" position="340,905" size="1500,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget name="slider" position="340,905" size="1500,15" foregroundColor="background4" transparent="1" zPosition="2" />
 		<panel name="TemplatesMenuDownProgressLayer" />
-		<widget name="activityslider" position="340,935" size="1500,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget name="activityslider" position="340,935" size="1500,15" foregroundColor="background4" transparent="1" zPosition="2" />
 		<widget source="package" render="Label" position="340,955" size="1500,30" font="Global; 25" halign="right" foregroundColor="color3" backgroundColor="background1" transparent="1" />
 		<widget source="status" render="Label" position="340,955" size="1500,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<panel name="TemplatesClock" />
@@ -2574,9 +2574,9 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<eLabel text="b" position="105,850" size="220,180" font="Icons; 110" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" />
 		<panel name="TemplatesTitle" />
 		<panel name="TemplatesMenuUpProgressLayer" />
-		<widget name="slider" position="340,905" size="1500,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget name="slider" position="340,905" size="1500,15" foregroundColor="background4" transparent="1" zPosition="2" />
 		<panel name="TemplatesMenuDownProgressLayer" />
-		<widget name="activityslider" position="340,935" size="1500,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget name="activityslider" position="340,935" size="1500,15" foregroundColor="background4" transparent="1" zPosition="2" />
 		<widget name="package" render="Label" position="340,955" size="1500,30" font="Global; 25" halign="right" foregroundColor="color3" backgroundColor="background1" transparent="1" />
 		<widget name="status" render="Label" position="340,955" size="1500,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<panel name="TemplatesClock" />
@@ -3773,7 +3773,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<widget name="min_free_kb" position="355,900" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<widget name="memory" position="355,955" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<panel name="TemplatesInfoBarTvProgressLayer" />
-		<widget name="slide" render="Progress" position="355,935" size="990,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget name="slide" render="Progress" position="355,935" size="990,15" foregroundColor="background4" transparent="1" zPosition="2" />
 		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
 	</screen>
@@ -3790,7 +3790,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<widget name="pfree" position="1245,900" size="100,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="right" transparent="1" />
 		<widget name="pused" position="355,900" size="100,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<panel name="TemplatesInfoBarTvProgressLayer" />
-		<widget name="slide" render="Progress" position="355,935" size="990,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget name="slide" render="Progress" position="355,935" size="990,15" foregroundColor="background4" transparent="1" zPosition="2" />
 		<panel name="TemplatesButtonsKey" />
 		<panel name="TemplatesClock" />
 	</screen>
@@ -4698,12 +4698,12 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<eLabel position="1840,480" size="70,360" backgroundColor="background2" zPosition="-10" />
 		<eLabel text="Fan Info" position="1110,445" size="725,30" font="Titles; 30" foregroundColor="color1" backgroundColor="background1" halign="left" transparent="1" />
 		<panel name="TemplatesFanControlProgressLayer" />
-		<widget source="PixTemp" render="Progress" position="1115,485" size="715,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="PixZielRPM" render="Progress" position="1115,545" size="715,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="PixRPM" render="Progress" position="1115,605" size="715,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="PixVLT" render="Progress" position="1115,665" size="715,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="PixPWM" render="Progress" position="1115,725" size="715,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="PixERR" render="Progress" position="1115,785" size="715,50" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="PixTemp" render="Progress" position="1115,485" size="715,50" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="PixZielRPM" render="Progress" position="1115,545" size="715,50" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="PixRPM" render="Progress" position="1115,605" size="715,50" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="PixVLT" render="Progress" position="1115,665" size="715,50" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="PixPWM" render="Progress" position="1115,725" size="715,50" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="PixERR" render="Progress" position="1115,785" size="715,50" foregroundColor="background4" transparent="1" zPosition="2" />
 		<widget source="Version" render="Label" position="340,895" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<widget source="introduction" render="Label" position="340,955" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
 		<widget source="red" render="Label" position="1380,884" size="380,22" font="Titles; 22" foregroundColor="color2" backgroundColor="background2" halign="right" valign="center" transparent="1" />
@@ -4753,16 +4753,16 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<widget source="TxtHDD" render="Label" position="410,670" size="400,40" font="Global; 35" halign="left" foregroundColor="color2" backgroundColor="background2" transparent="1" />
 		<widget source="TxtFan" render="Label" position="410,720" size="400,40" font="Global; 35" halign="left" foregroundColor="color2" backgroundColor="background2" transparent="1" />
 		<panel name="TemplatesFanMonitorProgressLayer" />
-		<widget source="ProTemp0" render="Progress" position="830,270" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProTemp1" render="Progress" position="830,320" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProTemp2" render="Progress" position="830,370" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProTemp3" render="Progress" position="830,420" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProTemp4" render="Progress" position="830,470" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProTemp5" render="Progress" position="830,520" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProTemp6" render="Progress" position="830,570" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProTemp7" render="Progress" position="830,620" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProHDD" render="Progress" position="830,670" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
-		<widget source="ProFan" render="Progress" position="830,720" size="650,40" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp0" render="Progress" position="830,270" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp1" render="Progress" position="830,320" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp2" render="Progress" position="830,370" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp3" render="Progress" position="830,420" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp4" render="Progress" position="830,470" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp5" render="Progress" position="830,520" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp6" render="Progress" position="830,570" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProTemp7" render="Progress" position="830,620" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProHDD" render="Progress" position="830,670" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="ProFan" render="Progress" position="830,720" size="650,40" foregroundColor="background4" transparent="1" zPosition="2" />
 		<panel name="TemplatesClock" />
 	</screen>
 	<!-- ########## Foreca ########## -->
@@ -4990,7 +4990,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<panel name="TemplatesTitle" />
 		<panel name="TemplatesInfoBarTvProgressLayer" />
 		<widget source="job_task" render="Label" position="340,895" size="1010,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
-		<widget source="job_progress" render="Progress" position="355,935" size="990,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2" />
+		<widget source="job_progress" render="Progress" position="355,935" size="990,15" foregroundColor="background4" transparent="1" zPosition="2" />
 		<widget source="job_progress" render="Label" position="340,955" size="500,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1">
 			<convert type="ProgressToText" />
 		</widget>
@@ -6264,14 +6264,14 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 		<widget source="session.FrontendStatus" render="Label" position="1510,335" size="310,100" font="Indication; 100" foregroundColor="color4" backgroundColor="background" halign="right" transparent="1">
 			<convert type="FrontendInfo">SNRdB</convert>
 		</widget>
-		<widget source="session.FrontendStatus" render="Progress" position="450,320" size="1000,120" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.FrontendStatus" render="Progress" position="450,320" size="1000,120" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<widget source="session.FrontendStatus" render="Label" position="1510,205" size="310,50" font="Indication; 50" foregroundColor="color4" backgroundColor="background" halign="right" transparent="1">
 			<convert type="FrontendInfo">SNR</convert>
 		</widget>
 		<eLabel text="AGC" position="140,495" size="250,100" font="Indication; 100" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1" />
-		<widget source="session.FrontendStatus" render="Progress" position="450,480" size="1000,120" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.FrontendStatus" render="Progress" position="450,480" size="1000,120" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="FrontendInfo">AGC</convert>
 		</widget>
 		<widget source="session.FrontendStatus" render="Label" position="1510,495" size="310,100" font="Indication; 100" foregroundColor="color4" backgroundColor="background" halign="right" transparent="1">
@@ -6358,7 +6358,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 			<convert type="ClockToText">Default</convert>
 		</widget>
 		<panel name="TemplatesInfoBarMediaProgressLayer" />
-		<widget source="current_event" render="Progress" position="355,935" size="1450,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="current_event" render="Progress" position="355,935" size="1450,15" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="EventTime">Progress</convert>
 		</widget>
 		<widget source="next_event" render="Label" position="355,955" size="80,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1">
@@ -7239,7 +7239,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
 			<convert type="ServiceName">Name</convert>
 		</widget>
 		<panel name="TemplatesInfoBarTvProgressLayer" />
-		<widget source="session.CurrentService" render="Progress" position="355,935" size="990,15" foregroundColor="background4" backgroundColor="background4" transparent="1" zPosition="2">
+		<widget source="session.CurrentService" render="Progress" position="355,935" size="990,15" foregroundColor="background4" transparent="1" zPosition="2">
 			<convert type="ServicePosition">Position</convert>
 		</widget>
 		<widget source="session.CurrentService" render="Label" position="355,955" size="150,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="left" transparent="1">
