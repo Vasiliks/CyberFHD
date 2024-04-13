@@ -1,3 +1,3 @@
 Skin CyberFHD
 
-![scshot](https://github.com/Vasiliks/CyberFHD/assets/49211115/dd9a0671-ec60-4a1d-83a0-4d201604e7e3)
+![screenshot](https://github.com/Vasiliks/CyberFHD/assets/49211115/46877393-c08a-4634-8ca3-b2f1390df64b)
