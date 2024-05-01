@@ -6328,7 +6328,7 @@
 	<screen name="TemplatesInfoBarTvInfoWeatherMSNAnimated">
 		<!-- Templates Info Bar Tv Info -->
 		<panel name="TemplatesInfoBarTvInfoWeatherRightLayer" />
-		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,239" size="128,128" zPosition="2" alphatest="on">
+		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,242" size="115,115" zPosition="2" alphatest="on">
 			<convert type="MSNWeather2">Picon</convert>
 		</widget>
 	</screen>
@@ -6350,7 +6350,7 @@
 		<widget source="session.CurrentService" render="AnimatedMoonPixmap" path="/usr/share/enigma2/CyberFHD/msnweathermoonanimated" position="435,255" size="90,90" zPosition="2" alphatest="on">
 			<convert type="MSNWeather2">PiconMoon</convert>
 		</widget>
-		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,239" size="128,128" zPosition="2" alphatest="on">
+		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,242" size="115,115" zPosition="2" alphatest="on">
 			<convert type="MSNWeather2">Picon</convert>
 		</widget>
 	</screen>
@@ -6485,7 +6485,7 @@
 	<screen name="TemplatesInfoBarMediaInfoWeatherMSNAnimated">
 		<!-- Templates Info Bar Media Info -->
 		<panel name="TemplatesInfoBarTvInfoWeatherRightLayer" />
-		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,239" size="128,128" zPosition="2" alphatest="on">
+		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,242" size="115,115" zPosition="2" alphatest="on">
 			<convert type="MSNWeather2">Picon</convert>
 		</widget>
 	</screen>
@@ -6507,7 +6507,7 @@
 		<widget source="session.CurrentService" render="AnimatedMoonPixmap" path="/usr/share/enigma2/CyberFHD/msnweathermoonanimated" position="435,255" size="90,90" zPosition="2" alphatest="on">
 			<convert type="MSNWeather2">PiconMoon</convert>
 		</widget>
-		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,239" size="128,128" zPosition="2" alphatest="on">
+		<widget source="session.CurrentService" render="AnimatedWeatherPixmap" path="/usr/share/enigma2/CyberFHD/msnweatheranimated" position="1378,242" size="115,115" zPosition="2" alphatest="on">
 			<convert type="MSNWeather2">Picon</convert>
 		</widget>
 	</screen>
