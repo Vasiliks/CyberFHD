@@ -44,6 +44,8 @@ addFont("/usr/share/enigma2/CyberFHD/fonts/Neuropol.ttf", "SkinTitles", 100, 1)
 addFont("/usr/share/enigma2/CyberFHD/fonts/LedCounter.ttf", "SkinIndication", 100, 1)
 addFont("/usr/share/enigma2/CyberFHD/fonts/Roboto-Regular.ttf", "SkinGlobal", 100, 1)
 
+git = "https://raw.githubusercontent.com/Vasiliks"
+
 
 def _(txt):
     t = gettext.dgettext("SetupCyberFHD", txt)
@@ -953,7 +955,6 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
 
     def download(self):
-        git = "https://raw.githubusercontent.com/Vasiliks"
     # download plugin
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/plugin.py".format(git), "/tmp/plugin.py")
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/ruSetupCyberFHD.mo")
