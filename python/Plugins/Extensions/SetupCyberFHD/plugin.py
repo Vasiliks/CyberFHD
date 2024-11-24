@@ -765,7 +765,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 
     def infocom(self):
         version = ""
-        if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/WeatherMSN/plugin.pyo")\
+        if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/WeatherMSN/plugin.pyc")\
             and not fileExists("/usr/lib/enigma2/python/Components/Converter/MSNWeather2.py"):
             self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
         elif not fileExists("/usr/lib/enigma2/python/Components/Converter/AlwaysTrue.py")\
