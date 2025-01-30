@@ -72,36 +72,36 @@
 	<screen name="TemplatesClockLayer">
 		<panel name="TemplatesClockCornerBackground3" />
 		<!-- Clock Layer -->
-		<eLabel position="1618,63" size="204,104" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1620,65" size="200,100" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="1618,63" size="204,104" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1620,65" size="200,100" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 	</screen>
 	<screen name="TemplatesPiconLayer">
 		<panel name="TemplatesPiconCornerBackground3" />
 		<!-- Picon Layer -->
-		<eLabel position="98,867" size="234,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="100,869" size="230,142" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="98,867" size="234,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="100,869" size="230,142" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 	</screen>
 	<screen name="TemplatesCoverLayer">
 		<panel name="TemplatesCoverCornerBackground3" />
 		<!-- Cover Layer-->
-		<eLabel position="98,704" size="234,309" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="100,706" size="230,305" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="98,704" size="234,309" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="100,706" size="230,305" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 	</screen>
 	<screen name="TemplatesButtonsLayer">
 		<panel name="TemplatesButtonsCornerBackground2" />
 		<panel name="TemplatesTunerButtonsCornerBackground3" />
 		<!-- Buttons Layer -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1375,875" size="390,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1375,875" size="390,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesButtonsBigLayer">
 		<panel name="TemplatesButtonsBigCornerBackground2" />
 		<panel name="TemplatesTunerButtonsBigCornerBackground3" />
 		<!-- Buttons Layer -->
-		<eLabel position="1368,747" size="454,266" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,749" size="450,262" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1375,755" size="390,250" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,747" size="454,266" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,749" size="450,262" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1375,755" size="390,250" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarTvLayer">
 		<!-- Info Bar Tv Layer -->
@@ -112,48 +112,48 @@
 	<screen name="TemplatesInfoBarCILayer">
 		<panel name="TemplatesInfoBarCICornerBackground2" />
 		<!-- Info Bar CI Layer -->
-		<eLabel position="1368,396" size="552,117" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,398" size="550,115" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1375,438" size="460,70" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1840,438" size="70,70" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,396" size="552,117" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,398" size="550,115" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1375,438" size="460,70" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1840,438" size="70,70" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarInfoLayer">
 		<panel name="TemplatesInfoBarInfoCornerBackground2" />
 		<!-- Info Bar Info Layer -->
-		<eLabel position="1368,513" size="552,329" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,515" size="550,325" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1375,555" size="460,280" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1840,555" size="70,280" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,513" size="552,329" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,515" size="550,325" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1375,555" size="460,280" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1840,555" size="70,280" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarTunerPiconLayer">
 		<panel name="TemplatesTunerButtonsCornerBackground3" />
 		<!-- Info Bar Tv Picon Layer -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 	</screen>
 	<screen name="TemplatesInfoBarTunerStyleLayer">
 		<panel name="TemplatesInfoBarTunerDigitalCornerBackground2" />
 		<panel name="TemplatesTunerButtonsCornerBackground3" />
 		<!-- Info Bar Tv Tuner Style Layer -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1485,875" size="330,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1485,875" size="330,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarTunerDigitalLayer">
 		<panel name="TemplatesInfoBarTunerDigitalCornerBackground2" />
 		<panel name="TemplatesTunerButtonsCornerBackground3" />
 		<!-- Info Bar Tv Tuner Digital Layer -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1485,875" size="330,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1485,875" size="330,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarTunerAnalogLayer">
 		<panel name="TemplatesInfoBarTunerAnalogCornerBackground2" />
 		<panel name="TemplatesTunerButtonsCornerBackground3" />
 		<!-- Info Bar Tv Tuner Analog Layer -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1375,875" size="440,100" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1375,875" size="440,100" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<eLabel position="1370,976" size="450,35" backgroundColor="background1" zPosition="-1" />
 		<eLabel position="1383,925" size="25,7" backgroundColor="background2" zPosition="-4" />
 		<eLabel position="1532,925" size="25,7" backgroundColor="background2" zPosition="-4" />
@@ -187,36 +187,36 @@
 	<screen name="TemplatesInfoBarEPGNowLayer">
 		<panel name="TemplatesInfoBarEPGNowCornerBackground2" />
 		<!-- Info Bar Description Layer -->
-		<eLabel position="0,513" size="1352,329" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,515" size="1350,325" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="85,555" size="1260,280" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="10,555" size="70,280" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,513" size="1352,329" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="0,515" size="1350,325" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="85,555" size="1260,280" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="10,555" size="70,280" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarEPGNxtLayer">
 		<panel name="TemplatesInfoBarEPGNxtCornerBackground2" />
 		<!-- Info Bar Description Layer -->
-		<eLabel position="0,513" size="1352,329" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,515" size="1350,325" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="85,555" size="1260,120" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="85,715" size="1260,120" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="10,555" size="70,120" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="10,715" size="70,120" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,513" size="1352,329" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="0,515" size="1350,325" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="85,555" size="1260,120" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="85,715" size="1260,120" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="10,555" size="70,120" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="10,715" size="70,120" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarWeatherLeftLayer">
 		<panel name="TemplatesInfoBarWeatherLeftCornerBackground2" />
 		<!-- Info Bar Weather Layer -->
-		<eLabel position="0,193" size="552,184" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,195" size="550,180" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="85,235" size="460,135" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="10,235" size="70,135" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,193" size="552,184" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="0,195" size="550,180" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="85,235" size="460,135" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="10,235" size="70,135" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarWeatherRightLayer">
 		<panel name="TemplatesInfoBarWeatherRightCornerBackground2" />
 		<!-- Info Bar Weather Layer -->
-		<eLabel position="1368,193" size="552,184" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,195" size="550,180" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1375,235" size="460,135" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1840,235" size="70,135" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,193" size="552,184" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,195" size="550,180" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1375,235" size="460,135" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1840,235" size="70,135" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesInfoBarMediaLayer">
 		<!-- Info Bar Media Layer -->
@@ -226,10 +226,10 @@
 	<screen name="TemplatesInfoBarMediaInfoLayer">
 		<panel name="TemplatesInfoBarMediaInfoCornerBackground2" />
 		<!-- Layer Description -->
-		<eLabel position="353,718" size="1567,144" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="355,720" size="1565,140" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="360,725" size="1475,130" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1840,725" size="70,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="353,718" size="1567,144" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="355,720" size="1565,140" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="360,725" size="1475,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1840,725" size="70,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesMenuLayer">
 		<!-- Menu Layer -->
@@ -249,26 +249,26 @@
 		<panel name="TemplatesMenuMediaPlayerCornerBackground3" />
 		<!-- Media Menu Player Layer -->
 		<!-- Description Layer -->
-		<eLabel position="78,643" size="874,144" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="80,645" size="870,140" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="85,650" size="860,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="78,643" size="874,144" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="80,645" size="870,140" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="85,650" size="860,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- List1 Layer-->
-		<eLabel position="78,188" size="874,429" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="80,190" size="870,425" backgroundColor="background1" zPosition="-11" />
+		<eLabel position="78,188" size="874,429" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="80,190" size="870,425" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
 		<!-- List2 Layer-->
-		<eLabel position="968,188" size="874,659" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="970,190" size="870,655" backgroundColor="background1" zPosition="-11" />
+		<eLabel position="968,188" size="874,659" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="970,190" size="870,655" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
 		<!-- List1 Left Layer -->
-		<eLabel position="0,188" size="80,429" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,190" size="80,425" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="10,200" size="70,405" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,188" size="80,429" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="0,190" size="80,425" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="10,200" size="70,405" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer Description Left -->
-		<eLabel position="0,643" size="80,144" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,645" size="80,140" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="10,650" size="70,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,643" size="80,144" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="0,645" size="80,140" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="10,650" size="70,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Case Layer-->
-		<eLabel position="95,800" size="235,210" backgroundColor="background2" zPosition="-11" />
-		<eLabel position="93,798" size="239,214" backgroundColor="background3" zPosition="-12" />
+		<eLabel position="95,800" size="235,210" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
+		<eLabel position="93,798" size="239,214" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
 	</screen>
 	<screen name="TemplatesMenuMusicPlayerLayer">
 		<panel name="TemplatesMenuMediaLayer" />
@@ -276,13 +276,13 @@
 		<panel name="TemplatesMenuMusicPlayerCornerBackground3" />
 		<!-- Music Menu Player Layer -->
 		<!-- Layer Description -->
-		<eLabel position="353,718" size="1567,144" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="355,720" size="1565,140" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="360,725" size="1475,130" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1840,725" size="70,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="353,718" size="1567,144" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="355,720" size="1565,140" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="360,725" size="1475,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1840,725" size="70,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer Case-->
-		<eLabel position="93,798" size="239,214" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="95,800" size="235,210" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="93,798" size="239,214" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="95,800" size="235,210" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 	</screen>
 	<screen name="TemplatesMenuRadioLeftLayer">
 	<panel name="TemplatesMenuRadioLeftCornerBackground2" />
@@ -300,16 +300,16 @@
 		<eLabel position="338,998" size="624,34" backgroundColor="background3" zPosition="-14" />
 		<eLabel position="340,1000" size="620,30" backgroundColor="background2" zPosition="-13" />
 		<!-- Layer Description -->
-		<eLabel position="78,703" size="874,144" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="80,705" size="870,140" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="85,710" size="860,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="78,703" size="874,144" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="80,705" size="870,140" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="85,710" size="860,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer Description Left -->
-		<eLabel position="0,703" size="80,144" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,705" size="80,140" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="10,710" size="70,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,703" size="80,144" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="0,705" size="80,140" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="10,710" size="70,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Picon Layer -->
-		<eLabel position="100,869" size="230,142" backgroundColor="background2" zPosition="-11" />
-		<eLabel position="98,867" size="234,146" backgroundColor="background3" zPosition="-12" />
+		<eLabel position="100,869" size="230,142" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
+		<eLabel position="98,867" size="234,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
 	</screen>
 	<screen name="TemplatesMenuRadioRightLayer">
 	<panel name="TemplatesMenuRadioRightCornerBackground2" />
@@ -330,9 +330,9 @@
 		<eLabel position="8,188" size="874,659" backgroundColor="background3" zPosition="-14" />
 		<eLabel position="10,190" size="870,655" backgroundColor="background1" zPosition="-13" />
 		<!-- Layer Menu Right -->
-		<eLabel position="880,188" size="80,659" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="880,190" size="80,655" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="880,200" size="70,635" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="880,188" size="80,659" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="880,190" size="80,655" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="880,200" size="70,635" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<eLabel text="C " position="880,205" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<eLabel text="Y " position="880,275" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<eLabel text="B " position="880,345" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
@@ -342,19 +342,19 @@
 		<eLabel text="H " position="880,695" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<eLabel text="D " position="880,765" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<!-- Buttons Layer -->
-		<eLabel position="408,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="410,869" size="450,142" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="415,875" size="390,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="408,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="410,869" size="450,142" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="415,875" size="390,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Clock Layer -->
-		<eLabel position="658,63" size="204,104" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="660,65" size="200,100" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="658,63" size="204,104" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="660,65" size="200,100" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 	</screen>
 	<screen name="TemplatesMenuLeftLayer">
 		<panel name="TemplatesMenuLeftCornerBackground2" />
 		<!-- Layer Menu Left -->
-		<eLabel position="0,188" size="80,659" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,190" size="80,655" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="10,200" size="70,635" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,188" size="80,659" backgroundColor="background3" zPosition="-12" cornerRadius="E;left" />
+		<eLabel position="0,190" size="80,655" backgroundColor="background1" zPosition="-11" cornerRadius="I;left" />
+		<eLabel position="10,200" size="70,635" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<eLabel text="C " position="10,205" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<eLabel text="Y " position="10,275" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<eLabel text="B " position="10,345" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
@@ -367,9 +367,9 @@
 	<screen name="TemplatesMenuRightLayer">
 		<panel name="TemplatesMenuRightCornerBackground2" />
 		<!-- Layer Menu Right -->
-		<eLabel position="1840,188" size="80,659" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1840,190" size="80,655" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1840,200" size="70,635" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1840,188" size="80,659" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1840,190" size="80,655" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1840,200" size="70,635" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<eLabel text="C " position="1840,205" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<eLabel text="Y " position="1840,275" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
 		<eLabel text="B " position="1840,345" size="70,70" font="Titles; 70" foregroundColor="color5" backgroundColor="background2" halign="center" valign="center" transparent="1" zPosition="-9" />
@@ -383,104 +383,104 @@
 		<panel name="TemplatesMenuLayer" />
 		<panel name="TemplatesMenuLeftLayer" />
 		<!-- Menu 500 Layer -->
-		<eLabel position="78,188" size="504,659" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="80,190" size="500,655" backgroundColor="background1" zPosition="-11" />
+		<eLabel position="78,188" size="504,659" backgroundColor="background3" zPosition="-12" cornerRadius="E;right" />
+		<eLabel position="80,190" size="500,655" backgroundColor="background1" zPosition="-11" cornerRadius="I;right" />
 	</screen>
 	<screen name="TemplatesMenu1000Layer">
 		<panel name="TemplatesMenuLayer" />
 		<panel name="TemplatesMenuLeftLayer" />
 		<!-- Menu 1000 Layer -->
-		<eLabel position="78,188" size="1004,659" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="80,190" size="1000,655" backgroundColor="background1" zPosition="-11" />
+		<eLabel position="78,188" size="1004,659" backgroundColor="background3" zPosition="-12" cornerRadius="E;right" />
+		<eLabel position="80,190" size="1000,655" backgroundColor="background1" zPosition="-11" cornerRadius="I;right" />
 	</screen>
 	<screen name="TemplatesMenu1800Layer">
 		<panel name="TemplatesMenuLayer" />
 		<panel name="TemplatesMenuLeftLayer" />
 		<panel name="TemplatesMenuRightLayer" />
 		<!-- Menu 1800 Layer -->
-		<eLabel position="78,188" size="1764,659" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="80,190" size="1760,655" backgroundColor="background1" zPosition="-11" />
+		<eLabel position="78,188" size="1764,659" backgroundColor="background3" zPosition="-12" cornerRadius="E;right" />
+		<eLabel position="80,190" size="1760,655" backgroundColor="background1" zPosition="-11" cornerRadius="I;right" />
 	</screen>
 	<screen name="TemplatesMenuInfoLayer">
 		<panel name="TemplatesMenuInfoCornerBackground2" />
 		<!-- Layer Menu Info Right -->
 		<eLabel position="1840,458" size="80,389" backgroundColor="background3" zPosition="-12" />
 		<eLabel position="1840,460" size="80,385" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1840,505" size="70,335" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1840,505" size="70,335" backgroundColor="background2" zPosition="-10" cornerRadius="V;right" />
 		<!-- Menu Info Layer -->
-		<eLabel position="1103,458" size="739,389" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1105,460" size="735,385" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1110,505" size="725,335" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1103,458" size="739,389" backgroundColor="background3" zPosition="-12" cornerRadius="E;left" />
+		<eLabel position="1105,460" size="735,385" backgroundColor="background1" zPosition="-11" cornerRadius="I;left" />
+		<eLabel position="1110,505" size="725,335" backgroundColor="background2" zPosition="-10" cornerRadius="V;left" />
 	</screen>
 	<screen name="TemplatesMenuInfoPiconLayer">
 		<panel name="TemplatesMenuInfoPiconCornerBackground3" />
 		<!-- Picon Layer -->
-		<eLabel position="348,867" size="234,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="350,869" size="230,142" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="348,867" size="234,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="350,869" size="230,142" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 		<!-- Picon Layer -->
-		<eLabel position="598,867" size="234,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="600,869" size="230,142" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="598,867" size="234,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="600,869" size="230,142" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 		<!-- Picon Layer -->
-		<eLabel position="848,867" size="234,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="850,869" size="230,142" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="848,867" size="234,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="850,869" size="230,142" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 	</screen>
 	<screen name="TemplatesMenuInfoChannelLayer">
 		<panel name="TemplatesMenuInfoChannelCornerBackground2" />
 		<!-- Layer Channel Selection Tv Channel Info Right -->
-		<eLabel position="1840,188" size="80,149" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1840,190" size="80,145" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1840,230" size="70,100" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1840,188" size="80,149" backgroundColor="background3" zPosition="-12" cornerRadius="E;right" />
+		<eLabel position="1840,190" size="80,145" backgroundColor="background1" zPosition="-11" cornerRadius="I;right" />
+		<eLabel position="1840,230" size="70,100" backgroundColor="background2" zPosition="-10" cornerRadius="V;right" />
 		<!-- Layer Channel Selection Tv Channel Info -->
-		<eLabel position="1103,188" size="739,149" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1105,190" size="735,145" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1110,230" size="725,100" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1103,188" size="739,149" backgroundColor="background3" zPosition="-12" cornerRadius="E;left" />
+		<eLabel position="1105,190" size="735,145" backgroundColor="background1" zPosition="-11" cornerRadius="I;left" />
+		<eLabel position="1110,230" size="725,100" backgroundColor="background2" zPosition="-10" cornerRadius="V;left" />
 	</screen>
 	<screen name="TemplatesMenuInfoMovieLayer">
 		<panel name="TemplatesMenuInfoMovieCornerBackground2" />
 		<!-- Layer Menu Info Right -->
-		<eLabel position="1840,188" size="80,349" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1840,190" size="80,345" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1840,195" size="70,335" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1840,558" size="80,289" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1840,560" size="80,285" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1840,565" size="70,275" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1840,188" size="80,349" backgroundColor="background3" zPosition="-12" cornerRadius="E;right" />
+		<eLabel position="1840,190" size="80,345" backgroundColor="background1" zPosition="-11" cornerRadius="I;right" />
+		<eLabel position="1840,195" size="70,335" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1840,558" size="80,289" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1840,560" size="80,285" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1840,565" size="70,275" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer Menu Selection Movie -->
-		<eLabel position="1103,158" size="264,379" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1105,160" size="260,375" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1388,188" size="454,349" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1390,190" size="450,345" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1395,195" size="440,335" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1103,558" size="739,289" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1105,560" size="735,285" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1110,565" size="725,275" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1103,158" size="264,379" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1105,160" size="260,375" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1388,188" size="454,349" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1390,190" size="450,345" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1395,195" size="440,335" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1103,558" size="739,289" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1105,560" size="735,285" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1110,565" size="725,275" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesMenuInfoSignalFinderLayer">
 		<panel name="TemplatesMenuInfoSignalFinderCornerBackground2" />
 		<!-- Layer Satfinder Tuner Info Right -->
-		<eLabel position="1840,563" size="80,284" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1840,565" size="80,280" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1840,610" size="70,230" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1840,563" size="80,284" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1840,565" size="80,280" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1840,610" size="70,230" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer Satfinder Tuner Info -->
-		<eLabel position="1103,563" size="739,284" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1105,565" size="735,280" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1235,610" size="600,230" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1103,563" size="739,284" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1105,565" size="735,280" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1235,610" size="600,230" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<screen name="TemplatesMenuInfoSignalPositionerLayer">
 		<panel name="TemplatesMenuInfoSignalPositionerCornerBackground2" />
 		<!-- Layer Positioner Tuner Info Right -->
-		<eLabel position="1840,483" size="80,364" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1840,485" size="80,360" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1840,530" size="70,130" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1840,670" size="70,170" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1840,483" size="80,364" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1840,485" size="80,360" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1840,530" size="70,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1840,670" size="70,170" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer Positioner Tuner Info -->
-		<eLabel position="1103,483" size="739,364" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1105,485" size="735,360" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1235,530" size="600,130" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="1235,670" size="600,170" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1103,483" size="739,364" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1105,485" size="735,360" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1235,530" size="600,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="1235,670" size="600,170" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 	</screen>
 	<!-- ########## Templates Corner Layer ########## -->
 	<screen name="TemplatesClockCornerBackground3Standard">
-		<!-- Layer -->
+		<!-- Layer -->                                     
 	</screen>
 	<screen name="TemplatesClockCornerBackground3Improved">
 		<!-- Layer -->
@@ -793,9 +793,9 @@
 	</screen>
 	<screen name="TemplatesInfoBarTunerDigitalCornerBackground2Improved">
 		<!-- Info Bar Tv Tuner Digital Layer -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1485,875" size="330,130" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1485,875" size="330,130" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer -->
 		<eLabel position="1485,875" size="5,1" backgroundColor="background1" zPosition="-8" />
 		<eLabel position="1485,876" size="4,1" backgroundColor="background1" zPosition="-8" />
@@ -826,9 +826,9 @@
 	</screen>
 	<screen name="TemplatesInfoBarTunerAnalogCornerBackground2Improved">
 		<!-- Info Bar Tv Tuner Analog Layer -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="1375,875" size="440,100" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="1375,875" size="440,100" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<eLabel position="1370,976" size="450,35" backgroundColor="background1" zPosition="-1" />
 		<eLabel position="1383,925" size="25,7" backgroundColor="background2" zPosition="-4" />
 		<eLabel position="1532,925" size="25,7" backgroundColor="background2" zPosition="-4" />
@@ -1022,10 +1022,10 @@
 	</screen>
 	<screen name="TemplatesInfoBarWeatherLeftCornerBackground2Improved">
 		<!-- Info Bar Weather Layer -->
-		<eLabel position="0,193" size="552,184" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="0,195" size="550,180" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="85,235" size="460,135" backgroundColor="background2" zPosition="-10" />
-		<eLabel position="10,235" size="70,135" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,193" size="552,184" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="0,195" size="550,180" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="85,235" size="460,135" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
+		<eLabel position="10,235" size="70,135" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<!-- Layer -->
 		<eLabel position="10,235" size="5,1" backgroundColor="background1" zPosition="-8" />
 		<eLabel position="10,236" size="4,1" backgroundColor="background1" zPosition="-8" />
@@ -5495,8 +5495,8 @@
 	<screen name="TemplatesInfoBarTvTunerDefault">
 		<panel name="TemplatesInfoBarTunerPiconLayer" />
 		<!-- Templates Info Bar Tv Picon -->
-		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="1370,869" size="450,142" backgroundColor="background2" zPosition="-11" />
+		<eLabel position="1368,867" size="454,146" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="1370,869" size="450,142" backgroundColor="background2" zPosition="-11" cornerRadius="I" />
 		<widget source="session.CurrentService" render="PiconUni" path="piconProv" position="1375,874" size="220,132" zPosition="2" alphatest="on">
 			<convert type="ServiceName2">Provider</convert>
 		</widget>
@@ -6552,9 +6552,9 @@
 	<!-- ########## Templates Menu ########## -->
 	<screen name="TemplatesDish">
 		<!-- Layer Dish -->
-		<eLabel position="0,0" size="300,300" backgroundColor="background3" zPosition="-12" />
-		<eLabel position="2,2" size="296,296" backgroundColor="background1" zPosition="-11" />
-		<eLabel position="7,193" size="286,100" backgroundColor="background2" zPosition="-10" />
+		<eLabel position="0,0" size="300,300" backgroundColor="background3" zPosition="-12" cornerRadius="E" />
+		<eLabel position="2,2" size="296,296" backgroundColor="background1" zPosition="-11" cornerRadius="I" />
+		<eLabel position="7,193" size="286,100" backgroundColor="background2" zPosition="-10" cornerRadius="V" />
 		<widget name="Dishpixmap" pixmap="CyberFHD/dish.png" position="75,15" size="150,150" zPosition="12" alphatest="on" />
 		<eLabel name="From" position="12,228" size="100,30" text="From:" font="Global; 25" foregroundColor="color2" backgroundColor="background2" halign="left" transparent="1" />
 		<widget name="posFrom" position="113,228" size="175,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="right" transparent="1" />
@@ -6750,7 +6750,7 @@
 		<panel name="TemplatesMenu1000Layer" />
 		<panel name="TemplatesMenuLeftLayer" />
 		<!-- Templates Channel Selection Tv Bouquet-->
-		<widget name="list" position="90,200" size="980,635" transparent="1"
+		<widget name="list" position="90,200" size="980,635"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6776,7 +6776,7 @@
 		<eLabel position="90,200" size="980,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,205" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="Title" render="Label" position="125,205" size="940,30" font="Global; 25" foregroundColor="color2" backgroundColor="background2" halign="left" transparent="1" />
-		<widget name="list" position="90,245" size="980,600" transparent="1"
+		<widget name="list" position="90,245" size="980,600"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6800,7 +6800,7 @@
 		<panel name="TemplatesMenuLeftLayer" />
 		<panel name="TemplatesMenuRightLayer" />
 		<!-- Templates Channel Selection Tv Bouquet-->
-		<widget name="list" position="90,200" size="1740,635" transparent="1"
+		<widget name="list" position="90,200" size="1740,635"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6827,7 +6827,7 @@
 		<eLabel position="90,200" size="1740,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,205" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="Title" render="Label" position="125,205" size="1700,30" font="Global; 25" foregroundColor="color2" backgroundColor="background2" halign="left" transparent="1" />
-		<widget name="list" position="90,245" size="1740,600" transparent="1"
+		<widget name="list" position="90,245" size="1740,600"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6955,7 +6955,7 @@
 	<!-- ########## Templates Channel Selection Radio ########## -->
 	<screen name="TemplatesChannelSelectionRadioBouquetDefault">
 		<!-- Templates Channel Selection Radio Bouquet-->
-		<widget name="list" position="20,200" size="850,635" transparent="1"
+		<widget name="list" position="20,200" size="850,635"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6979,7 +6979,7 @@
 		<eLabel position="20,200" size="850,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="25,205" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="Title" render="Label" position="55,205" size="810,30" font="Global; 25" foregroundColor="color2" backgroundColor="background2" halign="left" transparent="1" />
-		<widget name="list" position="20,245" size="850,600" transparent="1"
+		<widget name="list" position="20,245" size="850,600"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"

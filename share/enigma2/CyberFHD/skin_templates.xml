@@ -6750,7 +6750,7 @@
 		<panel name="TemplatesMenu1000Layer" />
 		<panel name="TemplatesMenuLeftLayer" />
 		<!-- Templates Channel Selection Tv Bouquet-->
-		<widget name="list" position="90,200" size="980,635" transparent="1"
+		<widget name="list" position="90,200" size="980,635"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6776,7 +6776,7 @@
 		<eLabel position="90,200" size="980,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,205" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="Title" render="Label" position="125,205" size="940,30" font="Global; 25" foregroundColor="color2" backgroundColor="background2" halign="left" transparent="1" />
-		<widget name="list" position="90,245" size="980,600" transparent="1"
+		<widget name="list" position="90,245" size="980,600"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6800,7 +6800,7 @@
 		<panel name="TemplatesMenuLeftLayer" />
 		<panel name="TemplatesMenuRightLayer" />
 		<!-- Templates Channel Selection Tv Bouquet-->
-		<widget name="list" position="90,200" size="1740,635" transparent="1"
+		<widget name="list" position="90,200" size="1740,635"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6827,7 +6827,7 @@
 		<eLabel position="90,200" size="1740,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="95,205" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="Title" render="Label" position="125,205" size="1700,30" font="Global; 25" foregroundColor="color2" backgroundColor="background2" halign="left" transparent="1" />
-		<widget name="list" position="90,245" size="1740,600" transparent="1"
+		<widget name="list" position="90,245" size="1740,600"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6955,7 +6955,7 @@
 	<!-- ########## Templates Channel Selection Radio ########## -->
 	<screen name="TemplatesChannelSelectionRadioBouquet">
 		<!-- Templates Channel Selection Radio Bouquet-->
-		<widget name="list" position="20,200" size="850,635" transparent="1"
+		<widget name="list" position="20,200" size="850,635"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
@@ -6979,7 +6979,7 @@
 		<eLabel position="20,200" size="850,40" backgroundColor="background2" zPosition="-1" />
 		<eLabel text="&gt;" position="25,205" size="30,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" halign="center" transparent="1" />
 		<widget source="Title" render="Label" position="55,205" size="810,30" font="Global; 25" foregroundColor="color2" backgroundColor="background2" halign="left" transparent="1" />
-		<widget name="list" position="20,245" size="850,600" transparent="1"
+		<widget name="list" position="20,245" size="850,600"
 			scrollbarMode="showNever"
 			scrollbarWidth="10"
 			scrollbarSliderForegroundColor="background4"
