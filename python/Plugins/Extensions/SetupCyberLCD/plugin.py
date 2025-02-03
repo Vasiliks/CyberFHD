@@ -3,6 +3,8 @@
 # Plugin - Setup CyberLCD
 # Developer - Sirius
 # Homepage - https://github.com/Sirius0103
+# Support - Vasiliks
+# Homepage - https://github.com/Vasiliks
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,9 +19,11 @@
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
-import os
-import urllib
 import gettext
+import os
+from six.moves.urllib.request import urlretrieve
+from enigma import addFont
+from skin import parseColor, parseFont
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -31,14 +35,9 @@ from Components.Language import language
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, ConfigYesNo, ConfigSubsection, getConfigListEntry, ConfigSelection
 from Tools.Directories import resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
-from Tools.LoadPixmap import LoadPixmap
-from urllib import urlopen, urlretrieve
-from skin import parseColor, parseFont
-from os import system, environ
-from enigma import addFont
 
 lang = language.getLanguage()
-environ["LANGUAGE"] = lang[:2]
+os.environ["LANGUAGE"] = lang[:2]
 gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
 gettext.textdomain("enigma2")
 gettext.bindtextdomain("SetupCyberLCD", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/SetupCyberLCD/locale"))
@@ -468,13 +467,13 @@ class SetupCyberLCD(ConfigListScreen, Screen):
 		char = 40
 		tab = " "*10
 		section = _("Devise")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Your devise:"), config.skin.cyberlcd.device))
 		section = _("Fonts")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Fonts:"), config.skin.cyberlcd.fonts))
 		section = _("Style")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Color setting:"), config.skin.cyberlcd.colorsetting))
 
 		list.append(getConfigListEntry(_("Background color:"), config.skin.cyberlcd.colorbackground1))
@@ -488,25 +487,25 @@ class SetupCyberLCD(ConfigListScreen, Screen):
 		list.append(getConfigListEntry(_("Background transparent:"), config.skin.cyberlcd.backgroundtransparent))
 		list.append(getConfigListEntry(_("Text transparent:"), config.skin.cyberlcd.foregroundtransparent))
 		section = _("Progress")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Progress mode:"), config.skin.cyberlcd.progressmode))
 		section = _("Infobar")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Widget in infobar:"), config.skin.cyberlcd.widgetinfobar))
 		section = _("Movie Infobar")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Widget in movieinfobar:"), config.skin.cyberlcd.widgetmovieinfobar))
 		section = _("Channel Selection")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Widget in channel selection:"), config.skin.cyberlcd.widgetchannelselection))
 		section = _("Radio Selection")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Widget in radio selection:"), config.skin.cyberlcd.widgetradioselection))
 		section = _("EPG Selection")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Widget in EPG selection:"), config.skin.cyberlcd.widgetepgselection))
 		section = _("Standby")
-		list.append(getConfigListEntry(sep*(char-(len(section))/2) + tab + section + tab + sep*(char-(len(section))/2)))
+		list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
 		list.append(getConfigListEntry(_("Widget in standby:"), config.skin.cyberlcd.widgetstandby))
 		return list
 
@@ -561,7 +560,7 @@ class SetupCyberLCD(ConfigListScreen, Screen):
 
 	def version(self):
 		try:
-			urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/version","/tmp/version")
+			urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/version","/tmp/version")
 			self.infocom()
 		except:
 			pass
@@ -669,19 +668,19 @@ class SetupCyberLCD(ConfigListScreen, Screen):
 
 	def download(self):
 	# download plugin
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/plugin.py","/tmp/plugin.py")
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/locale/ru/LC_MESSAGES/SetupCyberLCD.mo","/tmp/ruSetupCyberLCD.mo")
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/locale/de/LC_MESSAGES/SetupCyberLCD.mo","/tmp/deSetupCyberLCD.mo")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/plugin.py","/tmp/plugin.py")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/locale/ru/LC_MESSAGES/SetupCyberLCD.mo","/tmp/ruSetupCyberLCD.mo")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/python/Plugins/Extensions/SetupCyberLCD/locale/de/LC_MESSAGES/SetupCyberLCD.mo","/tmp/deSetupCyberLCD.mo")
 	# download skin
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_lcd.xml","/tmp/skin_lcd.xml")
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_solo4k.xml","/tmp/skin_solo4k.xml")
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_uno4k.xml","/tmp/skin_uno4k.xml")
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_ultimo4k.xml","/tmp/skin_ultimo4k.xml")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_lcd.xml","/tmp/skin_lcd.xml")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_solo4k.xml","/tmp/skin_solo4k.xml")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_uno4k.xml","/tmp/skin_uno4k.xml")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-skins/master/share/enigma2/CyberLCD/skin_ultimo4k.xml","/tmp/skin_ultimo4k.xml")
 	# download converter
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-components/master/python/Components/Converter/AlwaysTrue.py","/tmp/AlwaysTrue.py")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-components/master/python/Components/Converter/AlwaysTrue.py","/tmp/AlwaysTrue.py")
 	# download renderer
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-components/master/python/Components/Renderer/AnimatedWeatherPixmap.py","/tmp/AnimatedWeatherPixmap.py")
-		urllib.urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-components/master/python/Components/Renderer/PiconUni.py","/tmp/PiconUni.py")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-components/master/python/Components/Renderer/AnimatedWeatherPixmap.py","/tmp/AnimatedWeatherPixmap.py")
+		urlretrieve("https://raw.githubusercontent.com/Sirius0103/enigma2-components/master/python/Components/Renderer/PiconUni.py","/tmp/PiconUni.py")
 	# end
 		self.install()
 
