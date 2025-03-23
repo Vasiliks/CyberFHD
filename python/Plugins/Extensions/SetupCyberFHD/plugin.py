@@ -47,6 +47,9 @@ addFont("/usr/share/enigma2/CyberFHD/fonts/LedCounter.ttf", "SkinIndication", 10
 addFont("/usr/share/enigma2/CyberFHD/fonts/Roboto-Regular.ttf", "SkinGlobal", 100, 1)
 
 git = "https://raw.githubusercontent.com/Vasiliks"
+skinpath = "/usr/share/enigma2/"
+pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/"
+componentspath = "/usr/lib/enigma2/python/Components/"
 
 
 def _(txt):
@@ -253,6 +256,7 @@ stylefullcolor = [
     ("0ffffff", _("White"))]
 
 fonts = [
+    ("setrixHD", _("setrixHD")),
     ("Roboto-Regular", _("Regular")),
     ("Roboto-Medium", _("Medium")),
     ("Roboto-Bold", _("Bold")),
@@ -291,92 +295,70 @@ bouquetradiochannelselection = [
     ("TemplatesChannelSelectionRadioBouquetDefault", _("No")),
     ("TemplatesChannelSelectionRadioBouquetStyle", _("Yes"))]
 
-if not fileExists("/usr/lib/enigma2/python/Components/Converter/CaidInfo2.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Converter/CamdInfo3.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Converter/EventName2.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Converter/FrontendInfo2.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Converter/ModuleControl.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Converter/ServiceName2.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Converter/ServiceInfoEX.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Renderer/PiconUni.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Renderer/Watches.py"):
-    numberchannel = [
-        ("TemplatesInfoBarTvNumberDefault", _("No"))]
-    tunerpanelinfobar = [
-        ("TemplatesInfoBarTvTunerStyle", _("Yes")),
-        ("TemplatesInfoBarTvTunerDigital", _("Digital"))]
-    cryptedpanelinfobar = [
-        ("TemplatesInfoBarTvInfoCryptedDefault", _("No"))]
-    infopanelinfobar = [
-        ("TemplatesInfoBarTvInfoPanelDefault", _("No"))]
-    cipanelinfobar = [
-        ("TemplatesInfoBarTvInfoPanelCIDefault", _("No"))]
-    piconchannelselection = [
-        ("TemplatesChannelSelectionTvPiconDefault", _("No"))]
-    channelpanelchannelselection = [
-        ("TemplatesChannelSelectionTvInfoChannelDefault", _("No"))]
-    epgpanelchannelselection = [
-        ("TemplatesChannelSelectionTvInfoEPGDefault", _("No")),
-        ("TemplatesChannelSelectionTvInfoEPGNow", _("Now"))]
-else:
-    numberchannel = [
-        ("TemplatesInfoBarTvNumberDefault", _("No")),
-        ("TemplatesInfoBarTvNumberStyle", _("Yes"))]
-    tunerpanelinfobar = [
-        ("TemplatesInfoBarTvTunerDefault", _("No")),
-        ("TemplatesInfoBarTvTunerStyle", _("Yes")),
-        ("TemplatesInfoBarTvTunerDigital", _("Digital")),
-        ("TemplatesInfoBarTvTunerAnalog", _("Analog"))]
-    cryptedpanelinfobar = [
-        ("TemplatesInfoBarTvInfoCryptedDefault", _("No")),
-        ("TemplatesInfoBarTvInfoCryptedStyle", _("Style")),
-        ("TemplatesInfoBarTvInfoCryptedImproved", _("Improved"))]
-    infopanelinfobar = [
-        ("TemplatesInfoBarTvInfoPanelDefault", _("No")),
+numberchannel = [("TemplatesInfoBarTvNumberDefault", _("No"))]
+tunerpanelinfobar = [
+    ("TemplatesInfoBarTvTunerDigital", _("Digital")),
+    ("TemplatesInfoBarTvTunerStyle", _("Yes"))]
+cryptedpanelinfobar = [("TemplatesInfoBarTvInfoCryptedDefault", _("No"))]
+infopanelinfobar = [("TemplatesInfoBarTvInfoPanelDefault", _("No"))]
+cipanelinfobar = [("TemplatesInfoBarTvInfoPanelCIDefault", _("No"))]
+piconchannelselection = [("TemplatesChannelSelectionTvPiconDefault", _("No"))]
+channelpanelchannelselection = [("TemplatesChannelSelectionTvInfoChannelDefault", _("No"))]
+epgpanelchannelselection = [
+    ("TemplatesChannelSelectionTvInfoEPGDefault", _("No")),
+    ("TemplatesChannelSelectionTvInfoEPGNow", _("Now"))]
+
+if fileExists("{}Converter/CaidInfo2.py".format(componentspath))\
+    and fileExists("{}Converter/CamdInfo3.py".format(componentspath))\
+    and fileExists("{}Converter/EventName2.py".format(componentspath))\
+    and fileExists("{}Converter/FrontendInfo2.py".format(componentspath))\
+    and fileExists("{}Converter/ModuleControl.py".format(componentspath))\
+    and fileExists("{}Converter/ServiceName2.py".format(componentspath))\
+    and fileExists("{}Converter/ServiceInfoEX.py".format(componentspath))\
+    and fileExists("{}Renderer/PiconUni.py".format(componentspath))\
+    and fileExists("{}Renderer/Watches.py".format(componentspath)):
+    numberchannel.append(("TemplatesInfoBarTvNumberStyle", _("Yes")))
+    tunerpanelinfobar.extend((("TemplatesInfoBarTvTunerDefault", _("No")),
+        ("TemplatesInfoBarTvTunerAnalog", _("Analog"))))
+    cryptedpanelinfobar.extend((("TemplatesInfoBarTvInfoCryptedStyle", _("Style")),
+        ("TemplatesInfoBarTvInfoCryptedImproved", _("Improved"))))
+    infopanelinfobar.extend((
         ("TemplatesInfoBarTvInfoPanelNIM", _("NIM")),
         ("TemplatesInfoBarTvInfoPanelECM", _("ECM")),
-        ("TemplatesInfoBarTvInfoPanelPID", _("PID"))]
-    cipanelinfobar = [
-        ("TemplatesInfoBarTvInfoPanelCIDefault", _("No")),
-        ("TemplatesInfoBarTvInfoPanelCIStyle", _("Yes"))]
-    piconchannelselection = [
-        ("TemplatesChannelSelectionTvPiconDefault", _("No")),
-        ("TemplatesChannelSelectionTvPiconStyle", _("Yes"))]
-    channelpanelchannelselection = [
-        ("TemplatesChannelSelectionTvInfoChannelDefault", _("No")),
-        ("TemplatesChannelSelectionTvInfoChannelStyle", _("Yes"))]
-    epgpanelchannelselection = [
-        ("TemplatesChannelSelectionTvInfoEPGDefault", _("No")),
-        ("TemplatesChannelSelectionTvInfoEPGNow", _("Now")),
+        ("TemplatesInfoBarTvInfoPanelPID", _("PID"))))
+    cipanelinfobar.append(("TemplatesInfoBarTvInfoPanelCIStyle", _("Yes")))
+    piconchannelselection.append(("TemplatesChannelSelectionTvPiconStyle", _("Yes")))
+    channelpanelchannelselection.append(("TemplatesChannelSelectionTvInfoChannelStyle", _("Yes")))
+    epgpanelchannelselection.extend((
         ("TemplatesChannelSelectionTvInfoEPGNxt", _("Now, Next")),
         ("TemplatesChannelSelectionTvInfoEPGNowPrograms", _("Now, 5 Programs")),
-        ("TemplatesChannelSelectionTvInfoEPGPrograms", _("10 Programs"))]
+        ("TemplatesChannelSelectionTvInfoEPGPrograms", _("10 Programs"))))
 
-if not fileExists("/usr/lib/enigma2/python/Components/Converter/MSNWeather2.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Renderer/PiconUni.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Renderer/AnimatedWeatherPixmap.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Renderer/AnimatedMoonPixmap.py"):
-    weatherpanelinfobar = [
-        ("TemplatesInfoBarTvInfoWeatherDefault", _("No"))]
-    weatherpanelmovieinfobar = [
-        ("TemplatesInfoBarMediaInfoWeatherDefault", _("No"))]
-else:
-    weatherpanelinfobar = [
-        ("TemplatesInfoBarTvInfoWeatherDefault", _("No")),
-        ("TemplatesInfoBarTvInfoWeatherMSN", _("MSN")),
-        ("TemplatesInfoBarTvInfoWeatherMSNAnimated", _("Animated MSN")),
-        ("TemplatesInfoBarTvInfoWeatherMSNMoon", _("MSN & Moon")),
-        ("TemplatesInfoBarTvInfoWeatherMSNAnimatedMoon", _("Animated MSN & Moon"))]
-    weatherpanelmovieinfobar = [
-        ("TemplatesInfoBarMediaInfoWeatherDefault", _("No")),
-        ("TemplatesInfoBarMediaInfoWeatherMSN", _("MSN")),
-        ("TemplatesInfoBarMediaInfoWeatherMSNAnimated", _("Animated MSN")),
-        ("TemplatesInfoBarMediaInfoWeatherMSNMoon", _("MSN & Moon")),
-        ("TemplatesInfoBarMediaInfoWeatherMSNAnimatedMoon", _("Animated MSN & Moon"))]
+weatherpanelinfobar = [("TemplatesInfoBarTvInfoWeatherDefault", _("No"))]
+weatherpanelmovieinfobar = [("TemplatesInfoBarMediaInfoWeatherDefault", _("No"))]
 
-if not fileExists("/usr/lib/enigma2/python/Components/Converter/MovieInfo2.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Renderer/MovieCover.py")\
-    or not fileExists("/usr/lib/enigma2/python/Components/Renderer/MovieRating.py"):
+if fileExists("{}Converter/WeatherForeca.py".format(componentspath))\
+    and fileExists("{}Renderer/PiconUni.py".format(componentspath)):
+    weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherForeca", _("Foreca")))
+    weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherForeca", _("Foreca")))
+
+if fileExists("{}Converter/MSNWeather2.py".format(componentspath))\
+    and fileExists("{}Renderer/PiconUni.py".format(componentspath)):
+    weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSN", _("MSN")))
+    weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNMoon", _("MSN & Moon")))
+    weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSN", _("MSN")))
+    weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNMoon", _("MSN & Moon")))
+
+    if fileExists("{}Renderer/AnimatedWeatherPixmap.py".format(componentspath))\
+        and fileExists("{}Renderer/AnimatedMoonPixmap.py".format(componentspath)):
+        weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimated", _("Animated MSN")))
+        weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimatedMoon", _("Animated MSN & Moon")))
+        weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimated", _("Animated MSN")))
+        weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimatedMoon", _("Animated MSN & Moon")))
+
+if not fileExists("{}Converter/MovieInfo2.py".format(componentspath))\
+    or not fileExists("{}Renderer/MovieCover.py".format(componentspath))\
+    or not fileExists("{}Renderer/MovieRating.py".format(componentspath)):
     covermovieinfobar = [
         ("TemplatesInfoBarMediaCoverDefault", _("No"))]
     infopanelmovieinfobar = [
@@ -766,7 +748,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 
     def version(self):
         try:
-            urlretrieve("https://raw.githubusercontent.com/Vasiliks/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version", "/tmp/version")
+            urlretrieve("https://raw.githubusercontent.com/Vasiliks/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version", "/tmp/cyberfhd/version")
             self.infocom()
         except:
             pass
@@ -774,30 +756,30 @@ class SetupCyberFHD(ConfigListScreen, Screen):
     def infocom(self):
         version = ""
         if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/WeatherMSN/plugin.pyc")\
-            and not fileExists("/usr/lib/enigma2/python/Components/Converter/MSNWeather2.py"):
+            and not fileExists("{}Converter/MSNWeather2.py".format(componentspath)):
             self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
-        elif not fileExists("/usr/lib/enigma2/python/Components/Converter/AlwaysTrue.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/AC3DownMixStatus.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/CaidInfo2.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/CamdInfo3.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/EventName2.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/FrontendInfo2.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/ModuleControl.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/MovieInfo2.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/ProgressDiskSpaceInfo.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/ServiceInfoEX.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/ServiceName2.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Converter/TunerBar.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Renderer/AnimatedWeatherPixmap.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Renderer/AnimatedMoonPixmap.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Renderer/MovieCover.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Renderer/MovieRating.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Renderer/PiconUni.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Renderer/RendVolumeTextP.py")\
-            or not fileExists("/usr/lib/enigma2/python/Components/Renderer/Watches.py"):
+        elif not fileExists("{}Converter/AlwaysTrue.py".format(componentspath))\
+            or not fileExists("{}Converter/AC3DownMixStatus.py".format(componentspath))\
+            or not fileExists("{}Converter/CaidInfo2.py".format(componentspath))\
+            or not fileExists("{}Converter/CamdInfo3.py".format(componentspath))\
+            or not fileExists("{}Converter/EventName2.py".format(componentspath))\
+            or not fileExists("{}Converter/FrontendInfo2.py".format(componentspath))\
+            or not fileExists("{}Converter/ModuleControl.py".format(componentspath))\
+            or not fileExists("{}Converter/MovieInfo2.py".format(componentspath))\
+            or not fileExists("{}Converter/ProgressDiskSpaceInfo.py".format(componentspath))\
+            or not fileExists("{}Converter/ServiceInfoEX.py".format(componentspath))\
+            or not fileExists("{}Converter/ServiceName2.py".format(componentspath))\
+            or not fileExists("{}Converter/TunerBar.py".format(componentspath))\
+            or not fileExists("{}Renderer/AnimatedWeatherPixmap.py".format(componentspath))\
+            or not fileExists("{}Renderer/AnimatedMoonPixmap.py".format(componentspath))\
+            or not fileExists("{}Renderer/MovieCover.py".format(componentspath))\
+            or not fileExists("{}Renderer/MovieRating.py".format(componentspath))\
+            or not fileExists("{}Renderer/PiconUni.py".format(componentspath))\
+            or not fileExists("{}Renderer/RendVolumeTextP.py".format(componentspath))\
+            or not fileExists("{}Renderer/Watches.py".format(componentspath)):
             self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
         else:
-            for text in open("/tmp/version").readlines()[3]:
+            for text in open("/tmp/cyberfhd/version").readlines()[3]:
                 version += text
             self["info_com"].setText(version)
             return version
@@ -832,13 +814,13 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             skin_user.append(["#_0909090", "#" + cyber.foregroundtransparent.value + cyber.colorforeground4.value])
             skin_user.append(["#_0000000", "#" + cyber.backgroundtransparent.value + cyber.colorforeground5.value])
     # clock
-            if not fileExists("/usr/lib/enigma2/python/Components/Converter/AlwaysTrue.py"):
+            if not fileExists("{}Converter/AlwaysTrue.py".format(componentspath)):
                 skin_templates_user.append(["TemplatesClockDefault", "TemplatesClock"])
             else:
                 skin_templates_user.append(["TemplatesClockStyle", "TemplatesClock"])
     # indication
-            if not fileExists("/usr/lib/enigma2/python/Components/Converter/AC3DownMixStatus.py")\
-                or not fileExists("/usr/lib/enigma2/python/Components/Converter/ServiceInfoEX.py"):
+            if not fileExists("{}Converter/AC3DownMixStatus.py".format(componentspath))\
+                or not fileExists("{}Converter/ServiceInfoEX.py".format(componentspath)):
                 skin_templates_user.append(["TemplatesInfoBarTvIndicationDefault", "TemplatesInfoBarTvIndication"])
                 skin_templates_user.append(["TemplatesInfoBarMediaIndicationDefault", "TemplatesInfoBarMediaIndication"])
                 skin_templates_user.append(["TemplatesInfoBarRadioIndicationDefault", "TemplatesInfoBarRadioIndication"])
@@ -917,107 +899,106 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
 
     def install(self):
-        skinpath = "/usr/share/enigma2/"
-        pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/"
-        componentspath = "/usr/lib/enigma2/python/Components/"
-        if fileExists("/tmp/version" \
-            and "/tmp/plugin.py" \
-            and "/tmp/ruSetupCyberFHD.mo" \
-            and "/tmp/deSetupCyberFHD.mo" \
-            and "/tmp/skin.xml" \
-            and "/tmp/skin_style.xml" \
-            and "/tmp/skin_templates.xml" \
-            and "/tmp/skin_templates_style.xml" \
-            and "/tmp/skin_extra.xml" \
-            and "/tmp/AlwaysTrue.py" \
-            and "/tmp/AC3DownMixStatus.py" \
-            and "/tmp/CaidInfo2.py" \
-            and "/tmp/CamdInfo3.py" \
-            and "/tmp/EventName2.py" \
-            and "/tmp/FrontendInfo2.py" \
-            and "/tmp/ModuleControl.py" \
-            and "/tmp/MovieInfo2.py" \
-            and "/tmp/ProgressDiskSpaceInfo.py" \
-            and "/tmp/ServiceInfoEX.py" \
-            and "/tmp/ServiceName2.py" \
-            and "/tmp/TunerBar.py" \
-            and "/tmp/AnimatedWeatherPixmap.py" \
-            and "/tmp/AnimatedMoonPixmap.py" \
-            and "/tmp/MovieCover.py" \
-            and "/tmp/MovieRating.py" \
-            and "/tmp/PiconUni.py" \
-            and "/tmp/RendVolumeTextP.py" \
-            and "/tmp/Watches.py"):
-            os.system("cp /tmp/version %sSetupCyberFHD/version" % (pluginpath))
+        if fileExists("/tmp/cyberfhd/version" \
+            and "/tmp/cyberfhd/plugin.py" \
+            and "/tmp/cyberfhd/ruSetupCyberFHD.mo" \
+            and "/tmp/cyberfhd/deSetupCyberFHD.mo" \
+            and "/tmp/cyberfhd/skin.xml" \
+            and "/tmp/cyberfhd/skin_style.xml" \
+            and "/tmp/cyberfhd/skin_templates.xml" \
+            and "/tmp/cyberfhd/skin_templates_style.xml" \
+            and "/tmp/cyberfhd/skin_extra.xml" \
+            and "/tmp/cyberfhd/AlwaysTrue.py" \
+            and "/tmp/cyberfhd/AC3DownMixStatus.py" \
+            and "/tmp/cyberfhd/CaidInfo2.py" \
+            and "/tmp/cyberfhd/CamdInfo3.py" \
+            and "/tmp/cyberfhd/EventName2.py" \
+            and "/tmp/cyberfhd/FrontendInfo2.py" \
+            and "/tmp/cyberfhd/ModuleControl.py" \
+            and "/tmp/cyberfhd/MovieInfo2.py" \
+            and "/tmp/cyberfhd/ProgressDiskSpaceInfo.py" \
+            and "/tmp/cyberfhd/ServiceInfoEX.py" \
+            and "/tmp/cyberfhd/ServiceName2.py" \
+            and "/tmp/cyberfhd/TunerBar.py" \
+            and "/tmp/cyberfhd/AnimatedWeatherPixmap.py" \
+            and "/tmp/cyberfhd/AnimatedMoonPixmap.py" \
+            and "/tmp/cyberfhd/MovieCover.py" \
+            and "/tmp/cyberfhd/MovieRating.py" \
+            and "/tmp/cyberfhd/PiconUni.py" \
+            and "/tmp/cyberfhd/RendVolumeTextP.py" \
+            and "/tmp/cyberfhd/Watches.py"):
+            os.system("cp /tmp/cyberfhd/version %sSetupCyberFHD/version" % (pluginpath))
     # install plugin
-            os.system("cp /tmp/plugin.py %sSetupCyberFHD/plugin.py" % (pluginpath))
-            os.system("cp /tmp/ruSetupCyberFHD.mo %sSetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
-            os.system("cp /tmp/deSetupCyberFHD.mo %sSetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
+            os.system("cp /tmp/cyberfhd/plugin.py %sSetupCyberFHD/plugin.py" % (pluginpath))
+            os.system("cp /tmp/cyberfhd/ruSetupCyberFHD.mo %sSetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
+            os.system("cp /tmp/cyberfhd/deSetupCyberFHD.mo %sSetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
     # install skin
-            os.system("cp /tmp/skin.xml %sCyberFHD/skin.xml" % (skinpath))
-            os.system("cp /tmp/skin_style.xml %sCyberFHD/skin_style.xml" % (skinpath))
-            os.system("cp /tmp/skin_templates.xml %sCyberFHD/skin_templates.xml" % (skinpath))
-            os.system("cp /tmp/skin_templates_style.xml %sCyberFHD/skin_templates_style.xml" % (skinpath))
-            os.system("cp /tmp/skin_extra.xml %sCyberFHD/skin_extra.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin.xml %sCyberFHD/skin.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_style.xml %sCyberFHD/skin_style.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_templates.xml %sCyberFHD/skin_templates.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_templates_style.xml %sCyberFHD/skin_templates_style.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_extra.xml %sCyberFHD/skin_extra.xml" % (skinpath))
     # install converter
-            os.system("cp /tmp/AlwaysTrue.py %sConverter/AlwaysTrue.py" % (componentspath))
-            os.system("cp /tmp/AC3DownMixStatus.py %sConverter/AC3DownMixStatus.py" % (componentspath))
-            os.system("cp /tmp/CaidInfo2.py %sConverter/CaidInfo2.py" % (componentspath))
-            os.system("cp /tmp/CamdInfo3.py %sConverter/CamdInfo3.py" % (componentspath))
-            os.system("cp /tmp/EventName2.py %sConverter/EventName2.py" % (componentspath))
-            os.system("cp /tmp/FrontendInfo2.py %sConverter/FrontendInfo2.py" % (componentspath))
-            os.system("cp /tmp/ModuleControl.py %sConverter/ModuleControl.py" % (componentspath))
-            os.system("cp /tmp/MovieInfo2.py %sConverter/MovieInfo2.py" % (componentspath))
-            os.system("cp /tmp/ProgressDiskSpaceInfo.py %sConverter/ProgressDiskSpaceInfo.py" % (componentspath))
-            os.system("cp /tmp/ServiceInfoEX.py %sConverter/ServiceInfoEX.py" % (componentspath))
-            os.system("cp /tmp/ServiceName2.py %sConverter/ServiceName2.py" % (componentspath))
-            os.system("cp /tmp/TunerBar.py %sConverter/TunerBar.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/AlwaysTrue.py %sConverter/AlwaysTrue.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/AC3DownMixStatus.py %sConverter/AC3DownMixStatus.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/CaidInfo2.py %sConverter/CaidInfo2.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/CamdInfo3.py %sConverter/CamdInfo3.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/EventName2.py %sConverter/EventName2.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/FrontendInfo2.py %sConverter/FrontendInfo2.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/ModuleControl.py %sConverter/ModuleControl.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/MovieInfo2.py %sConverter/MovieInfo2.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/ProgressDiskSpaceInfo.py %sConverter/ProgressDiskSpaceInfo.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/ServiceInfoEX.py %sConverter/ServiceInfoEX.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/ServiceName2.py %sConverter/ServiceName2.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/TunerBar.py %sConverter/TunerBar.py" % (componentspath))
             os.system("cp %sWeatherMSN/components/MSNWeather2.py %sConverter/MSNWeather2.py" % (pluginpath, componentspath))
     # install renderer
-            os.system("cp /tmp/AnimatedWeatherPixmap.py %sRenderer/AnimatedWeatherPixmap.py" % (componentspath))
-            os.system("cp /tmp/AnimatedMoonPixmap.py %sRenderer/AnimatedMoonPixmap.py" % (componentspath))
-            os.system("cp /tmp/MovieCover.py %sRenderer/MovieCover.py" % (componentspath))
-            os.system("cp /tmp/MovieRating.py %sRenderer/MovieRating.py" % (componentspath))
-            os.system("cp /tmp/PiconUni.py %sRenderer/PiconUni.py" % (componentspath))
-            os.system("cp /tmp/RendVolumeTextP.py %sRenderer/RendVolumeTextP.py" % (componentspath))
-            os.system("cp /tmp/Watches.py %sRenderer/Watches.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/AnimatedWeatherPixmap.py %sRenderer/AnimatedWeatherPixmap.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/AnimatedMoonPixmap.py %sRenderer/AnimatedMoonPixmap.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/MovieCover.py %sRenderer/MovieCover.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/MovieRating.py %sRenderer/MovieRating.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/PiconUni.py %sRenderer/PiconUni.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/RendVolumeTextP.py %sRenderer/RendVolumeTextP.py" % (componentspath))
+            os.system("cp /tmp/cyberfhd/Watches.py %sRenderer/Watches.py" % (componentspath))
     # end
+            os.system("rm -rf /tmp/cyberfhd/")
             self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
         else:
             self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
 
     def download(self):
+        os.system("mkdir /tmp/cyberfhd")
     # download plugin
-        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/plugin.py".format(git), "/tmp/plugin.py")
-        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/ruSetupCyberFHD.mo")
-        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/deSetupCyberFHD.mo")
+        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/plugin.py".format(git), "/tmp/cyberfhd/plugin.py")
+        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/ruSetupCyberFHD.mo")
+        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/deSetupCyberFHD.mo")
     # download skin
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin.xml".format(git), "/tmp/skin.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_style.xml".format(git), "/tmp/skin_style.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates.xml".format(git), "/tmp/skin_templates.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates_style.xml".format(git), "/tmp/skin_templates_style.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_extra.xml".format(git), "/tmp/skin_extra.xml")
+        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin.xml".format(git), "/tmp/cyberfhd/skin.xml")
+        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_style.xml".format(git), "/tmp/cyberfhd/skin_style.xml")
+        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates.xml".format(git), "/tmp/cyberfhd/skin_templates.xml")
+        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates_style.xml".format(git), "/tmp/cyberfhd/skin_templates_style.xml")
+        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_extra.xml".format(git), "/tmp/cyberfhd/skin_extra.xml")
     # download converter
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/AlwaysTrue.py".format(git), "/tmp/AlwaysTrue.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/AC3DownMixStatus.py".format(git), "/tmp/AC3DownMixStatus.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/CaidInfo2.py".format(git), "/tmp/CaidInfo2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/CamdInfo3.py".format(git), "/tmp/CamdInfo3.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/EventName2.py".format(git), "/tmp/EventName2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/FrontendInfo2.py".format(git), "/tmp/FrontendInfo2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ModuleControl.py".format(git), "/tmp/ModuleControl.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/MovieInfo2.py".format(git), "/tmp/MovieInfo2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ProgressDiskSpaceInfo.py".format(git), "/tmp/ProgressDiskSpaceInfo.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceInfoEX.py".format(git), "/tmp/ServiceInfoEX.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceName2.py".format(git), "/tmp/ServiceName2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/TunerBar.py".format(git), "/tmp/TunerBar.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/AlwaysTrue.py".format(git), "/tmp/cyberfhd/AlwaysTrue.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/AC3DownMixStatus.py".format(git), "/tmp/cyberfhd/AC3DownMixStatus.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/CaidInfo2.py".format(git), "/tmp/cyberfhd/CaidInfo2.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/CamdInfo3.py".format(git), "/tmp/cyberfhd/CamdInfo3.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/EventName2.py".format(git), "/tmp/cyberfhd/EventName2.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/FrontendInfo2.py".format(git), "/tmp/cyberfhd/FrontendInfo2.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ModuleControl.py".format(git), "/tmp/cyberfhd/ModuleControl.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/MovieInfo2.py".format(git), "/tmp/cyberfhd/MovieInfo2.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ProgressDiskSpaceInfo.py".format(git), "/tmp/cyberfhd/ProgressDiskSpaceInfo.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceInfoEX.py".format(git), "/tmp/cyberfhd/ServiceInfoEX.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceName2.py".format(git), "/tmp/cyberfhd/ServiceName2.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Converter/TunerBar.py".format(git), "/tmp/cyberfhd/TunerBar.py")
     # download renderer
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedWeatherPixmap.py".format(git), "/tmp/AnimatedWeatherPixmap.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedMoonPixmap.py".format(git), "/tmp/AnimatedMoonPixmap.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/MovieCover.py".format(git), "/tmp/MovieCover.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/MovieRating.py".format(git), "/tmp/MovieRating.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/PiconUni.py".format(git), "/tmp/PiconUni.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/RendVolumeTextP.py".format(git), "/tmp/RendVolumeTextP.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/Watches.py".format(git), "/tmp/Watches.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedWeatherPixmap.py".format(git), "/tmp/cyberfhd/AnimatedWeatherPixmap.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedMoonPixmap.py".format(git), "/tmp/cyberfhd/AnimatedMoonPixmap.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/MovieCover.py".format(git), "/tmp/cyberfhd/MovieCover.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/MovieRating.py".format(git), "/tmp/cyberfhd/MovieRating.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/PiconUni.py".format(git), "/tmp/cyberfhd/PiconUni.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/RendVolumeTextP.py".format(git), "/tmp/cyberfhd/RendVolumeTextP.py")
+        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/Watches.py".format(git), "/tmp/cyberfhd/Watches.py")
     # end
         self.install()
 
@@ -1060,7 +1041,6 @@ def main(session, **kwargs):
 def Plugins(**kwargs):
     return PluginDescriptor(name=_("Setup CyberFHD"),
                             description=_("Setup skin CyberFHD"),
-                            where = [PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
+                            where=[PluginDescriptor.WHERE_PLUGINMENU, PluginDescriptor.WHERE_EXTENSIONSMENU],
                             icon="plugin.png",
                             fnc=main)
-
