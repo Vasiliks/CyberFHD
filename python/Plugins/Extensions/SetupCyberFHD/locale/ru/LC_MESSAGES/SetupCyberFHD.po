@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Setup skin Skin CyberFHD\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2009-07-29 01:13+0100\n"
-"PO-Revision-Date: 2025-01-28 23:33+0100\n"
+"PO-Revision-Date: 2025-03-29 13:44+0100\n"
 "Last-Translator: Sirius <sirius.altech@gmail.com>\n"
 "Language-Team: sirius.altech@gmail.com\n"
 "Language: ru_RU\n"
@@ -155,8 +155,20 @@ msgstr "Шрифты"
 msgid "Style"
 msgstr "Стиль"
 
+msgid "Download components"
+msgstr "Загрузить компоненты"
+
 msgid "Channel Selection"
 msgstr "Выбор каналов"
+
+msgid "Now, Next"
+msgstr "Сейчас, Далее"
+
+msgid "Now, 5 Programs"
+msgstr "Сейчас, 5 Программ"
+
+msgid "10 Programs"
+msgstr "10 Программ"
 
 msgid ""
 "Skin CyberFHD\n"
