@@ -547,16 +547,16 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             "right": self.keyRight,
             "down": self.keyDown,
             "up": self.keyUp,
-            "red": self.exit,
+            "red": self.default,
             "green": self.save,
-            "yellow": self.default,
-            "blue": self.download,
+            "yellow": self.download_components,
+            "blue": self.download_skin,
             "info": self.about
             }, -1)
 
-        self["key_red"] = StaticText(_("Cancel"))
+        self["key_red"] = StaticText(_("Default"))
         self["key_green"] = StaticText(_("Save"))
-        self["key_yellow"] = StaticText(_("Default"))
+        self["key_yellow"] = StaticText(_("Download components"))
         self["key_blue"] = StaticText(_("Update CyberFHD"))
         self["Title"] = StaticText(_("Setup CyberFHD"))
 
@@ -898,7 +898,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
     # end
         self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
 
-    def install(self):
+    def install_skin(self):
         if fileExists("/tmp/cyberfhd/version" \
             and "/tmp/cyberfhd/plugin.py" \
             and "/tmp/cyberfhd/ruSetupCyberFHD.mo" \
@@ -907,8 +907,27 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             and "/tmp/cyberfhd/skin_style.xml" \
             and "/tmp/cyberfhd/skin_templates.xml" \
             and "/tmp/cyberfhd/skin_templates_style.xml" \
-            and "/tmp/cyberfhd/skin_extra.xml" \
-            and "/tmp/cyberfhd/AlwaysTrue.py" \
+            and "/tmp/cyberfhd/skin_extra.xml"): 
+            
+            os.system("cp /tmp/cyberfhd/version %sSetupCyberFHD/version" % (pluginpath))
+    # install plugin
+            os.system("cp /tmp/cyberfhd/plugin.py %sSetupCyberFHD/plugin.py" % (pluginpath))
+            os.system("cp /tmp/cyberfhd/ruSetupCyberFHD.mo %sSetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
+            os.system("cp /tmp/cyberfhd/deSetupCyberFHD.mo %sSetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
+    # install skin
+            os.system("cp /tmp/cyberfhd/skin.xml %sCyberFHD/skin.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_style.xml %sCyberFHD/skin_style.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_templates.xml %sCyberFHD/skin_templates.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_templates_style.xml %sCyberFHD/skin_templates_style.xml" % (skinpath))
+            os.system("cp /tmp/cyberfhd/skin_extra.xml %sCyberFHD/skin_extra.xml" % (skinpath))
+    # end
+            os.system("rm -rf /tmp/cyberfhd/")
+            self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
+        else:
+            self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
+
+    def install_components(self):
+        if fileExists("/tmp/cyberfhd/AlwaysTrue.py" \
             and "/tmp/cyberfhd/AC3DownMixStatus.py" \
             and "/tmp/cyberfhd/CaidInfo2.py" \
             and "/tmp/cyberfhd/CamdInfo3.py" \
@@ -927,17 +946,6 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             and "/tmp/cyberfhd/PiconUni.py" \
             and "/tmp/cyberfhd/RendVolumeTextP.py" \
             and "/tmp/cyberfhd/Watches.py"):
-            os.system("cp /tmp/cyberfhd/version %sSetupCyberFHD/version" % (pluginpath))
-    # install plugin
-            os.system("cp /tmp/cyberfhd/plugin.py %sSetupCyberFHD/plugin.py" % (pluginpath))
-            os.system("cp /tmp/cyberfhd/ruSetupCyberFHD.mo %sSetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
-            os.system("cp /tmp/cyberfhd/deSetupCyberFHD.mo %sSetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
-    # install skin
-            os.system("cp /tmp/cyberfhd/skin.xml %sCyberFHD/skin.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_style.xml %sCyberFHD/skin_style.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_templates.xml %sCyberFHD/skin_templates.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_templates_style.xml %sCyberFHD/skin_templates_style.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_extra.xml %sCyberFHD/skin_extra.xml" % (skinpath))
     # install converter
             os.system("cp /tmp/cyberfhd/AlwaysTrue.py %sConverter/AlwaysTrue.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/AC3DownMixStatus.py %sConverter/AC3DownMixStatus.py" % (componentspath))
@@ -966,7 +974,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         else:
             self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
 
-    def download(self):
+    def download_skin(self):
         os.system("mkdir /tmp/cyberfhd")
     # download plugin
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/plugin.py".format(git), "/tmp/cyberfhd/plugin.py")
@@ -978,6 +986,11 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates.xml".format(git), "/tmp/cyberfhd/skin_templates.xml")
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates_style.xml".format(git), "/tmp/cyberfhd/skin_templates_style.xml")
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_extra.xml".format(git), "/tmp/cyberfhd/skin_extra.xml")
+    # end
+        self.install_skin()
+        
+    def download_components(self):
+        os.system("mkdir /tmp/cyberfhd")
     # download converter
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/AlwaysTrue.py".format(git), "/tmp/cyberfhd/AlwaysTrue.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/AC3DownMixStatus.py".format(git), "/tmp/cyberfhd/AC3DownMixStatus.py")
@@ -1000,7 +1013,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/RendVolumeTextP.py".format(git), "/tmp/cyberfhd/RendVolumeTextP.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/Watches.py".format(git), "/tmp/cyberfhd/Watches.py")
     # end
-        self.install()
+        self.install_components()
 
     def setDefault(self, configItem):
         configItem.setValue(configItem.default)
