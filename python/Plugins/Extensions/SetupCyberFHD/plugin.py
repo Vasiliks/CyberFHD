@@ -748,6 +748,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 
     def version(self):
         try:
+            os.system("mkdir /tmp/cyberfhd")
             urlretrieve("https://raw.githubusercontent.com/Vasiliks/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version", "/tmp/cyberfhd/version")
             self.infocom()
         except:
