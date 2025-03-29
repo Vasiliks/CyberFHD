@@ -748,8 +748,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 
     def version(self):
         try:
-            os.system("mkdir /tmp/cyberfhd")
-            urlretrieve("https://raw.githubusercontent.com/Vasiliks/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version", "/tmp/cyberfhd/version")
+            urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version".format(git), "/tmp/version")
             self.infocom()
         except:
             pass
@@ -780,7 +779,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             or not fileExists("{}Renderer/Watches.py".format(componentspath)):
             self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
         else:
-            for text in open("/tmp/cyberfhd/version").readlines()[3]:
+            for text in open("/tmp/version").readlines()[3]:
                 version += text
             self["info_com"].setText(version)
             return version
@@ -978,6 +977,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
     def download_skin(self):
         os.system("mkdir /tmp/cyberfhd")
     # download plugin
+        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version".format(git), "/tmp/cyberfhd/version")
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/plugin.py".format(git), "/tmp/cyberfhd/plugin.py")
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/ruSetupCyberFHD.mo")
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/deSetupCyberFHD.mo")
