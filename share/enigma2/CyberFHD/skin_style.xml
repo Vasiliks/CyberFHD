@@ -2463,6 +2463,7 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
         <panel name="TemplatesTitle" />
         <widget name="list" position="90,200" size="980,600" itemHeight="60" font="Global;25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
         <widget name="text" position="340,955" size="1000,30" font="Global;25" foregroundColor="color3" backgroundColor="background1" halign="left" transparent="1" />
+        <panel name="TemplatesButtonsKey" />
         <panel name="TemplatesClock" />
     </screen>
     <!-- Plugin Manager -->
