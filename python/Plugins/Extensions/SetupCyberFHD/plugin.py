@@ -23,7 +23,7 @@ import gettext
 import os
 from six.moves.urllib.request import urlretrieve
 from enigma import addFont
-from skin import parseColor, parseFont
+from skin import parseColor
 from Plugins.Plugin import PluginDescriptor
 from Screens.Screen import Screen
 from Screens.MessageBox import MessageBox
@@ -57,6 +57,11 @@ def _(txt):
     if t == txt:
         t = gettext.gettext(txt)
     return t
+
+
+def write_log(value, value2=""):
+    with open("/tmp/cyber.log", 'a') as f:
+        f.write(f'{value} {value2}\n')
 
 
 def SearchReplaceWrite(skinPartSearchAndReplace, source, target):
@@ -308,15 +313,15 @@ epgpanelchannelselection = [
     ("TemplatesChannelSelectionTvInfoEPGDefault", _("No")),
     ("TemplatesChannelSelectionTvInfoEPGNow", _("Now"))]
 
-if fileExists("{}Converter/CaidInfo2.py".format(componentspath))\
-    and fileExists("{}Converter/CamdInfo3.py".format(componentspath))\
-    and fileExists("{}Converter/EventName2.py".format(componentspath))\
-    and fileExists("{}Converter/FrontendInfo2.py".format(componentspath))\
-    and fileExists("{}Converter/ModuleControl.py".format(componentspath))\
-    and fileExists("{}Converter/ServiceName2.py".format(componentspath))\
-    and fileExists("{}Converter/ServiceInfoEX.py".format(componentspath))\
-    and fileExists("{}Renderer/PiconUni.py".format(componentspath))\
-    and fileExists("{}Renderer/Watches.py".format(componentspath)):
+if fileExists("{}Converter/CaidInfo2.py".format(componentspath)) \
+        and fileExists("{}Converter/CamdInfo3.py".format(componentspath)) \
+        and fileExists("{}Converter/EventName2.py".format(componentspath)) \
+        and fileExists("{}Converter/FrontendInfo2.py".format(componentspath)) \
+        and fileExists("{}Converter/ModuleControl.py".format(componentspath)) \
+        and fileExists("{}Converter/ServiceName2.py".format(componentspath)) \
+        and fileExists("{}Converter/ServiceInfoEX.py".format(componentspath)) \
+        and fileExists("{}Renderer/PiconUni.py".format(componentspath)) \
+        and fileExists("{}Renderer/Watches.py".format(componentspath)):
     numberchannel.append(("TemplatesInfoBarTvNumberStyle", _("Yes")))
     tunerpanelinfobar.extend((("TemplatesInfoBarTvTunerDefault", _("No")),
         ("TemplatesInfoBarTvTunerAnalog", _("Analog"))))
@@ -337,27 +342,27 @@ if fileExists("{}Converter/CaidInfo2.py".format(componentspath))\
 weatherpanelinfobar = [("TemplatesInfoBarTvInfoWeatherDefault", _("No"))]
 weatherpanelmovieinfobar = [("TemplatesInfoBarMediaInfoWeatherDefault", _("No"))]
 
-if fileExists("{}Converter/WeatherForeca.py".format(componentspath))\
+if fileExists("{}Converter/WeatherForeca.py".format(componentspath)) \
     and fileExists("{}Renderer/PiconUni.py".format(componentspath)):
     weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherForeca", _("Foreca")))
     weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherForeca", _("Foreca")))
 
-if fileExists("{}Converter/MSNWeather2.py".format(componentspath))\
+if fileExists("{}Converter/MSNWeather2.py".format(componentspath)) \
     and fileExists("{}Renderer/PiconUni.py".format(componentspath)):
     weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSN", _("MSN")))
     weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNMoon", _("MSN & Moon")))
     weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSN", _("MSN")))
     weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNMoon", _("MSN & Moon")))
 
-    if fileExists("{}Renderer/AnimatedWeatherPixmap.py".format(componentspath))\
+    if fileExists("{}Renderer/AnimatedWeatherPixmap.py".format(componentspath)) \
         and fileExists("{}Renderer/AnimatedMoonPixmap.py".format(componentspath)):
         weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimated", _("Animated MSN")))
         weatherpanelinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimatedMoon", _("Animated MSN & Moon")))
         weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimated", _("Animated MSN")))
         weatherpanelmovieinfobar.append(("TemplatesInfoBarTvInfoWeatherMSNAnimatedMoon", _("Animated MSN & Moon")))
 
-if not fileExists("{}Converter/MovieInfo2.py".format(componentspath))\
-    or not fileExists("{}Renderer/MovieCover.py".format(componentspath))\
+if not fileExists("{}Converter/MovieInfo2.py".format(componentspath)) \
+    or not fileExists("{}Renderer/MovieCover.py".format(componentspath)) \
     or not fileExists("{}Renderer/MovieRating.py".format(componentspath)):
     covermovieinfobar = [
         ("TemplatesInfoBarMediaCoverDefault", _("No"))]
@@ -430,6 +435,17 @@ cyber.covermovieinfobar = ConfigSelection(default="TemplatesInfoBarMediaCoverDef
 cyber.infopanelmovieinfobar = ConfigSelection(default="TemplatesInfoBarMediaInfoPanelDefault", choices=infopanelmovieinfobar)
 cyber.weatherpanelmovieinfobar = ConfigSelection(default="TemplatesInfoBarMediaInfoWeatherDefault", choices=weatherpanelmovieinfobar)
 
+stylewindsicons = [
+    ("circle_light", _("Circle light")),
+    ("circle_dark", _("Circle dark")),
+    ("compass_light", _("Compass light")),
+    ("compass_dark", _("Compass dark"))]
+cyber.stylewindsicons = ConfigSelection(default="circle_light", choices=stylewindsicons)
+styleweathericons = [
+    ("classic", _("Classic")),
+    ("modern", _("Modern"))]
+cyber.styleweathericons = ConfigSelection(default="classic", choices=styleweathericons)
+
 cyber.progressmode = ConfigSelection(default="ProgressLayerStandard", choices=progressmode)
 cyber.scrollbarmode = ConfigSelection(default="showNever", choices=scrollbarmode)
 
@@ -441,6 +457,7 @@ cyber.epgpanelchannelselection = ConfigSelection(default="TemplatesChannelSelect
 cyber.bouquetradiochannelselection = ConfigSelection(default="TemplatesChannelSelectionRadioBouquetDefault", choices=bouquetradiochannelselection)
 
 cyber.panelmovieselection = ConfigSelection(default="TemplatesMovieSelectionDescriptionShort", choices=panelmovieselection)
+
 
 SKIN_CYBERFHD = """
     <!-- Setup CyberFHD -->
@@ -629,6 +646,9 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         list.append(getConfigListEntry(_("Info panel in secondinfobar:"), cyber.infopanelinfobar))
         list.append(getConfigListEntry(_("Show CI in info panel:"), cyber.cipanelinfobar))
         list.append(getConfigListEntry(_("Weather panel in secondinfobar:"), cyber.weatherpanelinfobar))
+        if cyber.weatherpanelinfobar.value == "TemplatesInfoBarTvInfoWeatherForeca":
+            list.append(getConfigListEntry(_("Style weather icons:"), cyber.styleweathericons))
+            list.append(getConfigListEntry(_("Style wind direction icons:"), cyber.stylewindsicons))
         section = _("Movie Infobar")
         list.append(getConfigListEntry(sep*(char-(len(section))//2) + tab + section + tab + sep*(char-(len(section))//2)))
         list.append(getConfigListEntry(_("Poster in movieinfobar:"), cyber.covermovieinfobar))
@@ -687,7 +707,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         self.fgColor4 = "#0%s" % cyber.colorforeground4.value
         self.fgColor5 = "#0%s" % cyber.colorforeground5.value
 
-    # Background 1
+# Background 1
         self["bgcolor1a"].setText(_(self.bgtext))
         self["bgcolor1a"].instance.setBackgroundColor(parseColor(self.bgColor1))
         self["bgcolor1a"].instance.setForegroundColor(parseColor(self.bgColor1))
@@ -697,11 +717,11 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         self["bgcolor1c"].setText(_(self.bgtext))
         self["bgcolor1c"].instance.setBackgroundColor(parseColor(self.bgColor1))
         self["bgcolor1c"].instance.setForegroundColor(parseColor(self.bgColor1))
-    # Background 2
+# Background 2
         self["bgcolor2a"].setText(_(self.bgtext))
         self["bgcolor2a"].instance.setBackgroundColor(parseColor(self.bgColor2))
         self["bgcolor2a"].instance.setForegroundColor(parseColor(self.bgColor2))
-    # Background 3
+# Background 3
         self["bgcolor3a"].setText(_(self.bgtext))
         self["bgcolor3a"].instance.setBackgroundColor(parseColor(self.bgColor3))
         self["bgcolor3a"].instance.setForegroundColor(parseColor(self.bgColor3))
@@ -714,35 +734,35 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         self["bgcolor3d"].setText(_(self.bgtext))
         self["bgcolor3d"].instance.setBackgroundColor(parseColor(self.bgColor3))
         self["bgcolor3d"].instance.setForegroundColor(parseColor(self.bgColor3))
-    # Progress
+# Progress
         self["bgcolor4a"].setText(_(self.bgtext))
         self["bgcolor4a"].instance.setBackgroundColor(parseColor(self.bgColor4))
         self["bgcolor4a"].instance.setForegroundColor(parseColor(self.bgColor4))
-    # Cursor
+# Cursor
         self["bgcolor5a"].setText(_(self.bgtext))
         self["bgcolor5a"].instance.setBackgroundColor(parseColor(self.bgColor5))
         self["bgcolor5a"].instance.setForegroundColor(parseColor(self.bgColor5))
-    # Title
+# Title
         self["fgcolor1a"].setText(_(self.fgtext))
         self["fgcolor1a"].instance.setForegroundColor(parseColor(self.fgColor1))
         self["fgcolor1b"].setText(_(self.fgtext))
         self["fgcolor1b"].instance.setForegroundColor(parseColor(self.fgColor1))
-    # Font 1
+# Font 1
         self["fgcolor2a"].setText(_(self.fgtext))
         self["fgcolor2a"].instance.setForegroundColor(parseColor(self.fgColor2))
         self["fgcolor2b"].setText(_(self.fgtext))
         self["fgcolor2b"].instance.setForegroundColor(parseColor(self.fgColor2))
         self["fgcolor2c"].setText(_(self.fgtext))
         self["fgcolor2c"].instance.setForegroundColor(parseColor(self.fgColor2))
-    # Font 2
+# Font 2
         self["fgcolor3a"].setText(_(self.fgtext))
         self["fgcolor3a"].instance.setForegroundColor(parseColor(self.fgColor3))
         self["fgcolor3b"].setText(_(self.fgtext))
         self["fgcolor3b"].instance.setForegroundColor(parseColor(self.fgColor3))
-    # Indication
+# Indication
         self["fgcolor4a"].setText(_(self.fgtext))
         self["fgcolor4a"].instance.setForegroundColor(parseColor(self.fgColor4))
-    # Icon
+# Icon
         self["fgcolor5a"].setText(_(self.fglogo))
         self["fgcolor5a"].instance.setForegroundColor(parseColor(self.fgColor5))
 
@@ -755,27 +775,27 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 
     def infocom(self):
         version = ""
-        if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/WeatherMSN/plugin.pyc")\
+        if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/WeatherMSN/plugin.pyc") \
             and not fileExists("{}Converter/MSNWeather2.py".format(componentspath)):
             self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
-        elif not fileExists("{}Converter/AlwaysTrue.py".format(componentspath))\
-            or not fileExists("{}Converter/AC3DownMixStatus.py".format(componentspath))\
-            or not fileExists("{}Converter/CaidInfo2.py".format(componentspath))\
-            or not fileExists("{}Converter/CamdInfo3.py".format(componentspath))\
-            or not fileExists("{}Converter/EventName2.py".format(componentspath))\
-            or not fileExists("{}Converter/FrontendInfo2.py".format(componentspath))\
-            or not fileExists("{}Converter/ModuleControl.py".format(componentspath))\
-            or not fileExists("{}Converter/MovieInfo2.py".format(componentspath))\
-            or not fileExists("{}Converter/ProgressDiskSpaceInfo.py".format(componentspath))\
-            or not fileExists("{}Converter/ServiceInfoEX.py".format(componentspath))\
-            or not fileExists("{}Converter/ServiceName2.py".format(componentspath))\
-            or not fileExists("{}Converter/TunerBar.py".format(componentspath))\
-            or not fileExists("{}Renderer/AnimatedWeatherPixmap.py".format(componentspath))\
-            or not fileExists("{}Renderer/AnimatedMoonPixmap.py".format(componentspath))\
-            or not fileExists("{}Renderer/MovieCover.py".format(componentspath))\
-            or not fileExists("{}Renderer/MovieRating.py".format(componentspath))\
-            or not fileExists("{}Renderer/PiconUni.py".format(componentspath))\
-            or not fileExists("{}Renderer/RendVolumeTextP.py".format(componentspath))\
+        elif not fileExists("{}Converter/AlwaysTrue.py".format(componentspath)) \
+            or not fileExists("{}Converter/AC3DownMixStatus.py".format(componentspath)) \
+            or not fileExists("{}Converter/CaidInfo2.py".format(componentspath)) \
+            or not fileExists("{}Converter/CamdInfo3.py".format(componentspath)) \
+            or not fileExists("{}Converter/EventName2.py".format(componentspath)) \
+            or not fileExists("{}Converter/FrontendInfo2.py".format(componentspath)) \
+            or not fileExists("{}Converter/ModuleControl.py".format(componentspath)) \
+            or not fileExists("{}Converter/MovieInfo2.py".format(componentspath)) \
+            or not fileExists("{}Converter/ProgressDiskSpaceInfo.py".format(componentspath)) \
+            or not fileExists("{}Converter/ServiceInfoEX.py".format(componentspath)) \
+            or not fileExists("{}Converter/ServiceName2.py".format(componentspath)) \
+            or not fileExists("{}Converter/TunerBar.py".format(componentspath)) \
+            or not fileExists("{}Renderer/AnimatedWeatherPixmap.py".format(componentspath)) \
+            or not fileExists("{}Renderer/AnimatedMoonPixmap.py".format(componentspath)) \
+            or not fileExists("{}Renderer/MovieCover.py".format(componentspath)) \
+            or not fileExists("{}Renderer/MovieRating.py".format(componentspath)) \
+            or not fileExists("{}Renderer/PiconUni.py".format(componentspath)) \
+            or not fileExists("{}Renderer/RendVolumeTextP.py".format(componentspath)) \
             or not fileExists("{}Renderer/Watches.py".format(componentspath)):
             self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
         else:
@@ -799,10 +819,10 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         radIn = cyber.cornerradius.value
         radEx = radIn + 2
         try:
-    # user skin
+# user skin
             skin_user = []
             skin_templates_user = []
-    # color`s
+# color`s
             skin_user.append(["#_0101010", "#" + cyber.backgroundtransparent.value + cyber.colorbackground1.value])
             skin_user.append(["#_0202020", "#" + cyber.backgroundtransparent.value + cyber.colorbackground2.value])
             skin_user.append(["#_0303030", "#" + cyber.backgroundtransparent.value + cyber.colorbackground3.value])
@@ -813,13 +833,13 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             skin_user.append(["#_0808080", "#" + cyber.foregroundtransparent.value + cyber.colorforeground3.value])
             skin_user.append(["#_0909090", "#" + cyber.foregroundtransparent.value + cyber.colorforeground4.value])
             skin_user.append(["#_0000000", "#" + cyber.backgroundtransparent.value + cyber.colorforeground5.value])
-    # clock
+# clock
             if not fileExists("{}Converter/AlwaysTrue.py".format(componentspath)):
                 skin_templates_user.append(["TemplatesClockDefault", "TemplatesClock"])
             else:
                 skin_templates_user.append(["TemplatesClockStyle", "TemplatesClock"])
-    # indication
-            if not fileExists("{}Converter/AC3DownMixStatus.py".format(componentspath))\
+# indication
+            if not fileExists("{}Converter/AC3DownMixStatus.py".format(componentspath)) \
                 or not fileExists("{}Converter/ServiceInfoEX.py".format(componentspath)):
                 skin_templates_user.append(["TemplatesInfoBarTvIndicationDefault", "TemplatesInfoBarTvIndication"])
                 skin_templates_user.append(["TemplatesInfoBarMediaIndicationDefault", "TemplatesInfoBarMediaIndication"])
@@ -828,9 +848,9 @@ class SetupCyberFHD(ConfigListScreen, Screen):
                 skin_templates_user.append(["TemplatesInfoBarTvIndicationStyle", "TemplatesInfoBarTvIndication"])
                 skin_templates_user.append(["TemplatesInfoBarMediaIndicationStyle", "TemplatesInfoBarMediaIndication"])
                 skin_templates_user.append(["TemplatesInfoBarRadioIndicationStyle", "TemplatesInfoBarRadioIndication"])
-    # fonts
+# fonts
             skin_user.append(["Roboto-Regular", cyber.fonts.value])
-    # corner
+# corner
             if cyber.cornerbackground2.value == "CornerBackground2Rounded":
                 skin_user.append(['name="config"', 'name="config" itemCornerRadius="{}"'.format(radIn-5)])
                 skin_user.append(['render="Listbox"', 'render="Listbox" itemCornerRadius="{}"'.format(radIn-5)])
@@ -854,48 +874,53 @@ class SetupCyberFHD(ConfigListScreen, Screen):
                 skin_templates_user.append([' cornerRadius="E;right"', ''])
                 skin_templates_user.append([' cornerRadius="E;left"', ''])
                 skin_templates_user.append([cyber.cornerbackground3.value, "CornerBackground3"])
-    # scrollbar
+# scrollbar
             skin_user.append(["showNever", cyber.scrollbarmode.value])
-    # number channel
+# number channel
             skin_templates_user.append([cyber.numberchannel.value, "TemplatesInfoBarTvNumber"])
-    # tuner panel
+# tuner panel
             skin_templates_user.append([cyber.tunerpanelinfobar.value, "TemplatesInfoBarTvTuner"])
-    # epg panel
+# epg panel
             skin_templates_user.append([cyber.epgpanelinfobar.value, "TemplatesInfoBarTvInfoEPG"])
-    # crypted panel
+# crypted panel
             skin_templates_user.append([cyber.cryptedpanelinfobar.value, "TemplatesInfoBarTvInfoCrypted"])
-    # info panel
+# info panel
             skin_templates_user.append([cyber.infopanelinfobar.value, "TemplatesInfoBarTvInfoPanel"])
-    # ci panel
+# ci panel
             skin_templates_user.append([cyber.cipanelinfobar.value, "TemplatesInfoBarTvInfoPanelCI"])
-    # weather panel
+# weather panel
             skin_templates_user.append([cyber.weatherpanelinfobar.value, "TemplatesInfoBarTvInfoWeather"])
             skin_templates_user.append([cyber.weatherpanelmovieinfobar.value, "TemplatesInfoBarMediaInfoWeather"])
-    # cover panel
+            if cyber.weatherpanelinfobar.value == "TemplatesInfoBarTvInfoWeatherForeca":
+                skin_templates_user.append(["forecaweathericons", cyber.styleweathericons.value])
+                skin_templates_user.append(["forecawindstyle", cyber.stylewindsicons.value])
+
+
+# cover panel
             skin_templates_user.append([cyber.covermovieinfobar.value, "TemplatesInfoBarMediaCover"])
-    # info panel
+# info panel
             skin_templates_user.append([cyber.infopanelmovieinfobar.value, "TemplatesInfoBarMediaInfoPanel"])
-    # progress
+# progress
             skin_templates_user.append([cyber.progressmode.value, "ProgressLayer"])
-    # bouquet
+# bouquet
             skin_templates_user.append([cyber.bouquetchannelselection.value, "TemplatesChannelSelectionTvBouquet"])
             skin_templates_user.append([cyber.bouquetchannelselection.value + "Full", "TemplatesChannelSelectionTvBouquetFull"])
-    # picon panel
+# picon panel
             skin_templates_user.append([cyber.piconchannelselection.value, "TemplatesChannelSelectionTvPicon"])
-    # epg panel
+# epg panel
             skin_templates_user.append([cyber.epgpanelchannelselection.value, "TemplatesChannelSelectionTvInfoEPG"])
-    # channel panel
+# channel panel
             skin_templates_user.append([cyber.channelpanelchannelselection.value, "TemplatesChannelSelectionTvInfoChannel"])
-    # bouquet
+# bouquet
             skin_templates_user.append([cyber.bouquetradiochannelselection.value, "TemplatesChannelSelectionRadioBouquet"])
-    # description panel
+# description panel
             skin_templates_user.append([cyber.panelmovieselection.value, "TemplatesMovieSelectionDescription"])
 
             SearchReplaceWrite(skin_user, "/usr/share/enigma2/CyberFHD/skin_style.xml", "/usr/share/enigma2/CyberFHD/skin.xml")
             SearchReplaceWrite(skin_templates_user, "/usr/share/enigma2/CyberFHD/skin_templates_style.xml", "/usr/share/enigma2/CyberFHD/skin_templates.xml")
         except:
             self.default()
-    # end
+# end
         self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
 
     def install_skin(self):
@@ -907,20 +932,20 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             and "/tmp/cyberfhd/skin_style.xml" \
             and "/tmp/cyberfhd/skin_templates.xml" \
             and "/tmp/cyberfhd/skin_templates_style.xml" \
-            and "/tmp/cyberfhd/skin_extra.xml"): 
-            
+            and "/tmp/cyberfhd/skin_extra.xml"):
+
             os.system("cp /tmp/cyberfhd/version %sSetupCyberFHD/version" % (pluginpath))
-    # install plugin
+# install plugin
             os.system("cp /tmp/cyberfhd/plugin.py %sSetupCyberFHD/plugin.py" % (pluginpath))
             os.system("cp /tmp/cyberfhd/ruSetupCyberFHD.mo %sSetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
             os.system("cp /tmp/cyberfhd/deSetupCyberFHD.mo %sSetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
-    # install skin
+# install skin
             os.system("cp /tmp/cyberfhd/skin.xml %sCyberFHD/skin.xml" % (skinpath))
             os.system("cp /tmp/cyberfhd/skin_style.xml %sCyberFHD/skin_style.xml" % (skinpath))
             os.system("cp /tmp/cyberfhd/skin_templates.xml %sCyberFHD/skin_templates.xml" % (skinpath))
             os.system("cp /tmp/cyberfhd/skin_templates_style.xml %sCyberFHD/skin_templates_style.xml" % (skinpath))
             os.system("cp /tmp/cyberfhd/skin_extra.xml %sCyberFHD/skin_extra.xml" % (skinpath))
-    # end
+# end
             os.system("rm -rf /tmp/cyberfhd/")
             self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
         else:
@@ -946,7 +971,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             and "/tmp/cyberfhd/PiconUni.py" \
             and "/tmp/cyberfhd/RendVolumeTextP.py" \
             and "/tmp/cyberfhd/Watches.py"):
-    # install converter
+# install converter
             os.system("cp /tmp/cyberfhd/AlwaysTrue.py %sConverter/AlwaysTrue.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/AC3DownMixStatus.py %sConverter/AC3DownMixStatus.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/CaidInfo2.py %sConverter/CaidInfo2.py" % (componentspath))
@@ -960,7 +985,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             os.system("cp /tmp/cyberfhd/ServiceName2.py %sConverter/ServiceName2.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/TunerBar.py %sConverter/TunerBar.py" % (componentspath))
             os.system("cp %sWeatherMSN/components/MSNWeather2.py %sConverter/MSNWeather2.py" % (pluginpath, componentspath))
-    # install renderer
+# install renderer
             os.system("cp /tmp/cyberfhd/AnimatedWeatherPixmap.py %sRenderer/AnimatedWeatherPixmap.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/AnimatedMoonPixmap.py %sRenderer/AnimatedMoonPixmap.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/MovieCover.py %sRenderer/MovieCover.py" % (componentspath))
@@ -968,7 +993,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             os.system("cp /tmp/cyberfhd/PiconUni.py %sRenderer/PiconUni.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/RendVolumeTextP.py %sRenderer/RendVolumeTextP.py" % (componentspath))
             os.system("cp /tmp/cyberfhd/Watches.py %sRenderer/Watches.py" % (componentspath))
-    # end
+# end
             os.system("rm -rf /tmp/cyberfhd/")
             self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
         else:
@@ -976,23 +1001,23 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 
     def download_skin(self):
         os.system("mkdir /tmp/cyberfhd")
-    # download plugin
+# download plugin
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version".format(git), "/tmp/cyberfhd/version")
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/plugin.py".format(git), "/tmp/cyberfhd/plugin.py")
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/ruSetupCyberFHD.mo")
         urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/deSetupCyberFHD.mo")
-    # download skin
+# download skin
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin.xml".format(git), "/tmp/cyberfhd/skin.xml")
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_style.xml".format(git), "/tmp/cyberfhd/skin_style.xml")
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates.xml".format(git), "/tmp/cyberfhd/skin_templates.xml")
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates_style.xml".format(git), "/tmp/cyberfhd/skin_templates_style.xml")
         urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_extra.xml".format(git), "/tmp/cyberfhd/skin_extra.xml")
-    # end
+# end
         self.install_skin()
-        
+
     def download_components(self):
         os.system("mkdir /tmp/cyberfhd")
-    # download converter
+# download converter
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/AlwaysTrue.py".format(git), "/tmp/cyberfhd/AlwaysTrue.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/AC3DownMixStatus.py".format(git), "/tmp/cyberfhd/AC3DownMixStatus.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/CaidInfo2.py".format(git), "/tmp/cyberfhd/CaidInfo2.py")
@@ -1005,7 +1030,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceInfoEX.py".format(git), "/tmp/cyberfhd/ServiceInfoEX.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceName2.py".format(git), "/tmp/cyberfhd/ServiceName2.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Converter/TunerBar.py".format(git), "/tmp/cyberfhd/TunerBar.py")
-    # download renderer
+# download renderer
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedWeatherPixmap.py".format(git), "/tmp/cyberfhd/AnimatedWeatherPixmap.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedMoonPixmap.py".format(git), "/tmp/cyberfhd/AnimatedMoonPixmap.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/MovieCover.py".format(git), "/tmp/cyberfhd/MovieCover.py")
@@ -1013,7 +1038,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/PiconUni.py".format(git), "/tmp/cyberfhd/PiconUni.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/RendVolumeTextP.py".format(git), "/tmp/cyberfhd/RendVolumeTextP.py")
         urlretrieve("{}/enigma2-components/master/python/Components/Renderer/Watches.py".format(git), "/tmp/cyberfhd/Watches.py")
-    # end
+# end
         self.install_components()
 
     def setDefault(self, configItem):
