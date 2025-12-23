@@ -5918,7 +5918,7 @@
         <eLabel text="CRW" position="500,52" size="70,30" font="Indication; 30" foregroundColor="gray" backgroundColor="background" transparent="1" />
         <widget source="session.CurrentService" render="FixedLabel" text="CRW" position="500,52" size="70,30" font="Indication; 30" foregroundColor="yellow" backgroundColor="background" transparent="1" zPosition="2">
             <convert type="CaidInfo2">CrwCrypt</convert>
-            <convert type="ConditionalShowHide" />                                                                                                                                                                                               
+            <convert type="ConditionalShowHide" />
         </widget>
         <widget source="session.CurrentService" render="FixedLabel" text="CRW" position="500,52" size="70,30" font="Indication; 30" foregroundColor="color4" backgroundColor="background" transparent="1" zPosition="3">
             <convert type="CaidInfo2">CrwEcm</convert>
@@ -6328,7 +6328,7 @@
         <eLabel position="1580,280" size="1,80" backgroundColor="background3" zPosition="-9" />
         <eLabel position="1750,280" size="1,80" backgroundColor="background3" zPosition="-9" />
 
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/classic/" position="1210,198" size="70,70" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/weathericons/forecaweathericons/" position="1210,198" size="70,70" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Symb</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="1088,198" size="110,36" font="Global; 34" foregroundColor="color4" backgroundColor="background2" halign="center" transparent="1">
@@ -6338,30 +6338,32 @@
             <convert type="WeatherForeca">Feelslike</convert>
         </widget>
 
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/circle/" position="1300,198" size="70,70" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/windicons/forecawindstyle" position="1300,198" size="70,70" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Windd</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="1300,198" size="70,70" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
             <convert type="WeatherForeca">Wind</convert>
         </widget>
-        <widget source="session.CurrentService" render="Label" position="1380,200" size="170,30" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
+        <ePixmap position="1380,199" size="30,30" pixmap="CyberFHD/foreca/pressione.png" alphatest="on" zPosition="1" />
+        <widget source="session.CurrentService" render="Label" position="1420,203" size="100,24" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="left" valign="center" transparent="1">
             <convert type="WeatherForeca">Pressure</convert>
         </widget>
-        <widget source="session.CurrentService" render="Label" position="1380,230" size="70,30" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
-            <convert type="WeatherForeca">Rain</convert>
-        </widget>
-        <widget source="session.CurrentService" render="Label" position="1450,230" size="70,30" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
+        <ePixmap position="1380,234" size="30,30" pixmap="CyberFHD/foreca/precip.png" alphatest="on" zPosition="1" />
+        <widget source="session.CurrentService" render="Label" position="1420,237" size="70,24" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="left" valign="center" transparent="1">
             <convert type="WeatherForeca">Rainp</convert>
+        </widget>
+        <widget source="session.CurrentService" render="Label" position="1480,237" size="80,24" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="left" valign="center" transparent="1">
+            <convert type="WeatherForeca">Rain</convert>
         </widget>
 
         <widget source="session.CurrentService" render="Label" position="1700,200" size="205,65" font="Global; 32" foregroundColor="color2" backgroundColor="background2" halign="right" valign="center" transparent="1">
             <convert type="WeatherForeca">City</convert>
         </widget>
         <!-- Day 0 -->
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/classic/" position="1080,274" size="60,60" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/weathericons/forecaweathericons/" position="1080,274" size="60,60" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Symb0</convert>
         </widget>
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/circle/" position="1164,274" size="64,64" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/windicons/forecawindstyle" position="1164,274" size="64,64" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Windd0</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="1164,274" size="64,64" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
@@ -6374,10 +6376,10 @@
             <convert type="WeatherForeca">Date0;%a %d</convert>
         </widget>
         <!-- Day 1 -->
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/classic/" position="1250,274" size="60,60" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/weathericons/forecaweathericons/" position="1250,274" size="60,60" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Symb1</convert>
         </widget>
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/circle/" position="1340,274" size="64,64" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/windicons/forecawindstyle" position="1340,274" size="64,64" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Windd1</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="1340,274" size="64,64" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
@@ -6390,10 +6392,10 @@
             <convert type="WeatherForeca">Date1;%a %d</convert>
         </widget>
         <!-- Day 2 -->
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/classic/" position="1420,274" size="60,60" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/weathericons/forecaweathericons/" position="1420,274" size="60,60" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Symb2</convert>
         </widget>
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/circle/" position="1510,274" size="64,64" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/windicons/forecawindstyle" position="1510,274" size="64,64" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Windd2</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="1510,274" size="64,64" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
@@ -6406,10 +6408,10 @@
             <convert type="WeatherForeca">Date2;%a %d</convert>
         </widget>
         <!-- Day 3 -->
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/modern/" position="1590,274" size="60,60" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/weathericons/forecaweathericons/" position="1590,274" size="60,60" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Symb3</convert>
         </widget>
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/circle/" position="1680,274" size="64,64" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/windicons/forecawindstyle" position="1680,274" size="64,64" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Windd3</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="1680,274" size="64,64" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
@@ -6422,10 +6424,10 @@
             <convert type="WeatherForeca">Date3;%a %d</convert>
         </widget>
         <!-- Day 4 -->
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/classic/" position="1760,274" size="60,60" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/weathericons/forecaweathericons/" position="1760,274" size="60,60" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Symb4</convert>
         </widget>
-        <widget source="session.CurrentService" render="PiconUni" path="Extensions/MeteoForeca/weathericons/circle/" position="1850,274" size="64,64" zPosition="2" alphatest="blend">
+        <widget source="session.CurrentService" render="PiconUni" path="CyberFHD/foreca/windicons/forecawindstyle" position="1850,274" size="64,64" zPosition="2" alphatest="blend">
             <convert type="WeatherForeca">Windd4</convert>
         </widget>
         <widget source="session.CurrentService" render="Label" position="1850,274" size="64,64" font="Global; 20" foregroundColor="color1" backgroundColor="background2" halign="center" valign="center" transparent="1">
@@ -7184,4 +7186,3 @@
         </widget>
     </screen>
 </skin>
-
