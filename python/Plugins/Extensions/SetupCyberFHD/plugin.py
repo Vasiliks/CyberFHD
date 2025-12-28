@@ -74,7 +74,6 @@ components = [
     ]
 
 
-
 def write_log(value, value2=""):
     with open("/tmp/cyber.log", 'a') as f:
         f.write('{} {}\n'.format(value, value2))
@@ -975,7 +974,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             os.system("rm -rf /tmp/cyberfhd/")
             self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
         else:
-            self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10) 
+            self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
 
     def setDefault(self, configItem):
         configItem.setValue(configItem.default)
