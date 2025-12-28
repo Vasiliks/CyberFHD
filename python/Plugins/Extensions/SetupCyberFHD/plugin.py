@@ -18,6 +18,8 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
+
+from . import _
 import gettext
 import os
 import zipfile
@@ -31,16 +33,10 @@ from Screens.Standby import TryQuitMainloop
 from Components.ActionMap import ActionMap
 from Components.Sources.StaticText import StaticText
 from Components.Label import Label
-from Components.Language import language
 from Components.ConfigList import ConfigListScreen
 from Components.config import config, ConfigSubsection, getConfigListEntry, ConfigSelection, ConfigInteger
-from Tools.Directories import fileExists, resolveFilename, SCOPE_PLUGINS, SCOPE_LANGUAGE
+from Tools.Directories import fileExists
 
-lang = language.getLanguage()
-os.environ["LANGUAGE"] = lang[:2]
-gettext.bindtextdomain("enigma2", resolveFilename(SCOPE_LANGUAGE))
-gettext.textdomain("enigma2")
-gettext.bindtextdomain("SetupCyberFHD", "%s%s" % (resolveFilename(SCOPE_PLUGINS), "Extensions/SetupCyberFHD/locale"))
 
 addFont("/usr/share/enigma2/CyberFHD/fonts/Neuropol.ttf", "SkinTitles", 100, 1)
 addFont("/usr/share/enigma2/CyberFHD/fonts/LedCounter.ttf", "SkinIndication", 100, 1)
@@ -77,11 +73,6 @@ components = [
     "Renderer/Watches.py"
     ]
 
-def _(txt):
-    t = gettext.dgettext("SetupCyberFHD", txt)
-    if t == txt:
-        t = gettext.gettext(txt)
-    return t
 
 
 def write_log(value, value2=""):
