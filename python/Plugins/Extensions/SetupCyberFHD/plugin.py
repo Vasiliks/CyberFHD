@@ -77,7 +77,7 @@ components = [
 
 def write_log(value, value2=""):
     with open("/tmp/cyber.log", 'a') as f:
-        f.write(f'{value} {value2}\n')
+        f.write('{} {}\n'.format(value, value2))
 
 
 def SearchReplaceWrite(skinPartSearchAndReplace, source, target):
@@ -948,7 +948,8 @@ class SetupCyberFHD(ConfigListScreen, Screen):
                 for name in z.namelist():
                     if (name.startswith(skin) or name.startswith(plugin)) and not name.endswith("/"):
                         target_path = name.replace("CyberFHD-master/share", "/usr/share", 1).replace("CyberFHD-master/python", "/usr/lib/enigma2/python")
-                        os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                        if not os.path.exists(os.path.dirname(target_path)):
+                            os.makedirs(os.path.dirname(target_path))
                         with z.open(name) as src, open(target_path, "wb") as dst:
                             dst.write(src.read())
             os.system("rm -rf /tmp/cyberfhd/")
@@ -967,13 +968,14 @@ class SetupCyberFHD(ConfigListScreen, Screen):
                     for name in z.namelist():
                         if comp in name:
                             target_path = name.replace("enigma2-components-master", "/usr/lib/enigma2")
-                            os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                            if not os.path.exists(os.path.dirname(target_path)):
+                                os.makedirs(os.path.dirname(target_path))
                             with z.open(name) as src, open(target_path, "wb") as dst:
                                 dst.write(src.read())
             os.system("rm -rf /tmp/cyberfhd/")
             self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
         else:
-            self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
+            self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10) 
 
     def setDefault(self, configItem):
         configItem.setValue(configItem.default)
