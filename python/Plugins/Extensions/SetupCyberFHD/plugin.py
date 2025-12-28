@@ -929,8 +929,8 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 # download plugin
         urlretrieve(Homepage, archiv_path)
         if fileExists(archiv_path):
-            plugin = 'CyberFHD-master/python/Plugins/Extensions/SetupCyberFHD/'
-            skin = "CyberFHD-master/share"
+            plugin = "CyberFHD-master/python/Plugins/Extensions/SetupCyberFHD/"
+            skin = "CyberFHD-master/share/enigma2/CyberFHD/"
             with zipfile.ZipFile(archiv_path, "r") as z:
                 for name in z.namelist():
                     if (name.startswith(skin) or name.startswith(plugin) )and not name.endswith("/"):
