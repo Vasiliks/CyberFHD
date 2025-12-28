@@ -47,11 +47,35 @@ addFont("/usr/share/enigma2/CyberFHD/fonts/LedCounter.ttf", "SkinIndication", 10
 addFont("/usr/share/enigma2/CyberFHD/fonts/Roboto-Regular.ttf", "SkinGlobal", 100, 1)
 
 git = "https://raw.githubusercontent.com/Vasiliks"
-Homepage = "https://github.com/Vasiliks/CyberFHD/archive/refs/heads/master.zip"
-archiv = "CyberFHD-master.zip"
+SKIN = "https://github.com/Vasiliks/CyberFHD/archive/refs/heads/master.zip"
+COMPONENTS = "https://github.com/Vasiliks/enigma2-components/archive/refs/heads/master.zip"
 pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/"
 componentspath = "/usr/lib/enigma2/python/Components/"
 tmp_path = "/tmp/cyberfhd/"
+archiv = "CyberFHD.zip"
+
+
+components = [
+    "Converter/AlwaysTrue.py",
+    "Converter/AC3DownMixStatus.py",
+    "Converter/CaidInfo2.py",
+    "Converter/CamdInfo3.py",
+    "Converter/EventName2.py",
+    "Converter/FrontendInfo2.py",
+    "Converter/ModuleControl.py",
+    "Converter/MovieInfo2.py",
+    "Converter/ProgressDiskSpaceInfo.py",
+    "Converter/ServiceInfoEX.py",
+    "Converter/ServiceName2.py",
+    "Converter/TunerBar.py",
+    "Renderer/AnimatedWeatherPixmap.py",
+    "Renderer/AnimatedMoonPixmap.py",
+    "Renderer/MovieCover.py",
+    "Renderer/MovieRating.py",
+    "Renderer/PiconUni.py",
+    "Renderer/RendVolumeTextP.py",
+    "Renderer/Watches.py"
+    ]
 
 def _(txt):
     t = gettext.dgettext("SetupCyberFHD", txt)
@@ -922,102 +946,43 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 # end
         self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
 
-
     def download_skin(self):
         os.system("mkdir /tmp/cyberfhd")
         archiv_path = os.path.join(tmp_path, archiv)
-# download plugin
-        urlretrieve(Homepage, archiv_path)
+        urlretrieve(SKIN, archiv_path)
         if fileExists(archiv_path):
             plugin = "CyberFHD-master/python/Plugins/Extensions/SetupCyberFHD/"
             skin = "CyberFHD-master/share/enigma2/CyberFHD/"
             with zipfile.ZipFile(archiv_path, "r") as z:
                 for name in z.namelist():
-                    if (name.startswith(skin) or name.startswith(plugin) )and not name.endswith("/"):
+                    if (name.startswith(skin) or name.startswith(plugin)) and not name.endswith("/"):
                         target_path = name.replace("CyberFHD-master/share", "/usr/share", 1).replace("CyberFHD-master/python", "/usr/lib/enigma2/python")
                         os.makedirs(os.path.dirname(target_path), exist_ok=True)
                         with z.open(name) as src, open(target_path, "wb") as dst:
                             dst.write(src.read())
-                os.system("rm -rf /tmp/cyberfhd/")
-                self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
-        else:
-            self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
-
-
-    def install_components(self):
-        if fileExists("/tmp/cyberfhd/AlwaysTrue.py" \
-            and "/tmp/cyberfhd/AC3DownMixStatus.py" \
-            and "/tmp/cyberfhd/CaidInfo2.py" \
-            and "/tmp/cyberfhd/CamdInfo3.py" \
-            and "/tmp/cyberfhd/EventName2.py" \
-            and "/tmp/cyberfhd/FrontendInfo2.py" \
-            and "/tmp/cyberfhd/ModuleControl.py" \
-            and "/tmp/cyberfhd/MovieInfo2.py" \
-            and "/tmp/cyberfhd/ProgressDiskSpaceInfo.py" \
-            and "/tmp/cyberfhd/ServiceInfoEX.py" \
-            and "/tmp/cyberfhd/ServiceName2.py" \
-            and "/tmp/cyberfhd/TunerBar.py" \
-            and "/tmp/cyberfhd/AnimatedWeatherPixmap.py" \
-            and "/tmp/cyberfhd/AnimatedMoonPixmap.py" \
-            and "/tmp/cyberfhd/MovieCover.py" \
-            and "/tmp/cyberfhd/MovieRating.py" \
-            and "/tmp/cyberfhd/PiconUni.py" \
-            and "/tmp/cyberfhd/RendVolumeTextP.py" \
-            and "/tmp/cyberfhd/Watches.py"):
-# install converter
-            os.system("cp /tmp/cyberfhd/AlwaysTrue.py %sConverter/AlwaysTrue.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/AC3DownMixStatus.py %sConverter/AC3DownMixStatus.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/CaidInfo2.py %sConverter/CaidInfo2.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/CamdInfo3.py %sConverter/CamdInfo3.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/EventName2.py %sConverter/EventName2.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/FrontendInfo2.py %sConverter/FrontendInfo2.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/ModuleControl.py %sConverter/ModuleControl.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/MovieInfo2.py %sConverter/MovieInfo2.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/ProgressDiskSpaceInfo.py %sConverter/ProgressDiskSpaceInfo.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/ServiceInfoEX.py %sConverter/ServiceInfoEX.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/ServiceName2.py %sConverter/ServiceName2.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/TunerBar.py %sConverter/TunerBar.py" % (componentspath))
-            os.system("cp %sWeatherMSN/components/MSNWeather2.py %sConverter/MSNWeather2.py" % (pluginpath, componentspath))
-# install renderer
-            os.system("cp /tmp/cyberfhd/AnimatedWeatherPixmap.py %sRenderer/AnimatedWeatherPixmap.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/AnimatedMoonPixmap.py %sRenderer/AnimatedMoonPixmap.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/MovieCover.py %sRenderer/MovieCover.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/MovieRating.py %sRenderer/MovieRating.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/PiconUni.py %sRenderer/PiconUni.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/RendVolumeTextP.py %sRenderer/RendVolumeTextP.py" % (componentspath))
-            os.system("cp /tmp/cyberfhd/Watches.py %sRenderer/Watches.py" % (componentspath))
-# end
             os.system("rm -rf /tmp/cyberfhd/")
             self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
         else:
             self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
 
-
     def download_components(self):
         os.system("mkdir /tmp/cyberfhd")
-# download converter
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/AlwaysTrue.py".format(git), "/tmp/cyberfhd/AlwaysTrue.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/AC3DownMixStatus.py".format(git), "/tmp/cyberfhd/AC3DownMixStatus.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/CaidInfo2.py".format(git), "/tmp/cyberfhd/CaidInfo2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/CamdInfo3.py".format(git), "/tmp/cyberfhd/CamdInfo3.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/EventName2.py".format(git), "/tmp/cyberfhd/EventName2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/FrontendInfo2.py".format(git), "/tmp/cyberfhd/FrontendInfo2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ModuleControl.py".format(git), "/tmp/cyberfhd/ModuleControl.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/MovieInfo2.py".format(git), "/tmp/cyberfhd/MovieInfo2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ProgressDiskSpaceInfo.py".format(git), "/tmp/cyberfhd/ProgressDiskSpaceInfo.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceInfoEX.py".format(git), "/tmp/cyberfhd/ServiceInfoEX.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/ServiceName2.py".format(git), "/tmp/cyberfhd/ServiceName2.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Converter/TunerBar.py".format(git), "/tmp/cyberfhd/TunerBar.py")
-# download renderer
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedWeatherPixmap.py".format(git), "/tmp/cyberfhd/AnimatedWeatherPixmap.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/AnimatedMoonPixmap.py".format(git), "/tmp/cyberfhd/AnimatedMoonPixmap.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/MovieCover.py".format(git), "/tmp/cyberfhd/MovieCover.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/MovieRating.py".format(git), "/tmp/cyberfhd/MovieRating.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/PiconUni.py".format(git), "/tmp/cyberfhd/PiconUni.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/RendVolumeTextP.py".format(git), "/tmp/cyberfhd/RendVolumeTextP.py")
-        urlretrieve("{}/enigma2-components/master/python/Components/Renderer/Watches.py".format(git), "/tmp/cyberfhd/Watches.py")
-# end
-        self.install_components()
+        archiv_path = os.path.join(tmp_path, archiv)
+        urlretrieve(COMPONENTS, archiv_path)
+        if fileExists(archiv_path):
+            component = "enigma2-components-master/python/Components"
+            with zipfile.ZipFile(archiv_path, "r") as z:
+                for comp in components:
+                    for name in z.namelist():
+                        if comp in name:
+                            target_path = name.replace("enigma2-components-master", "/usr/lib/enigma2")
+                            os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                            with z.open(name) as src, open(target_path, "wb") as dst:
+                                dst.write(src.read())
+            os.system("rm -rf /tmp/cyberfhd/")
+            self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
+        else:
+            self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
 
     def setDefault(self, configItem):
         configItem.setValue(configItem.default)
