@@ -929,7 +929,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 # download plugin
         urlretrieve(Homepage, archiv_path)
         if fileExists(archiv_path):
-            plugin = 'CyberFHD-master/python'
+            plugin = 'CyberFHD-master/python/Plugins/Extensions/SetupCyberFHD/'
             skin = "CyberFHD-master/share"
             with zipfile.ZipFile(archiv_path, "r") as z:
                 for name in z.namelist():
