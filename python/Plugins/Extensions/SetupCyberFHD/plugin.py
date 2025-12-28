@@ -18,9 +18,9 @@
 #
 # You should have received a copy of the GNU General Public License
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
-
 import gettext
 import os
+import zipfile
 from six.moves.urllib.request import urlretrieve
 from enigma import addFont
 from skin import parseColor
@@ -47,10 +47,11 @@ addFont("/usr/share/enigma2/CyberFHD/fonts/LedCounter.ttf", "SkinIndication", 10
 addFont("/usr/share/enigma2/CyberFHD/fonts/Roboto-Regular.ttf", "SkinGlobal", 100, 1)
 
 git = "https://raw.githubusercontent.com/Vasiliks"
-skinpath = "/usr/share/enigma2/"
+Homepage = "https://github.com/Vasiliks/CyberFHD/archive/refs/heads/master.zip"
+archiv = "CyberFHD-master.zip"
 pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/"
 componentspath = "/usr/lib/enigma2/python/Components/"
-
+tmp_path = "/tmp/cyberfhd/"
 
 def _(txt):
     t = gettext.dgettext("SetupCyberFHD", txt)
@@ -894,8 +895,6 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             if cyber.weatherpanelinfobar.value == "TemplatesInfoBarTvInfoWeatherForeca":
                 skin_templates_user.append(["forecaweathericons", cyber.styleweathericons.value])
                 skin_templates_user.append(["forecawindstyle", cyber.stylewindsicons.value])
-
-
 # cover panel
             skin_templates_user.append([cyber.covermovieinfobar.value, "TemplatesInfoBarMediaCover"])
 # info panel
@@ -923,33 +922,27 @@ class SetupCyberFHD(ConfigListScreen, Screen):
 # end
         self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
 
-    def install_skin(self):
-        if fileExists("/tmp/cyberfhd/version" \
-            and "/tmp/cyberfhd/plugin.py" \
-            and "/tmp/cyberfhd/ruSetupCyberFHD.mo" \
-            and "/tmp/cyberfhd/deSetupCyberFHD.mo" \
-            and "/tmp/cyberfhd/skin.xml" \
-            and "/tmp/cyberfhd/skin_style.xml" \
-            and "/tmp/cyberfhd/skin_templates.xml" \
-            and "/tmp/cyberfhd/skin_templates_style.xml" \
-            and "/tmp/cyberfhd/skin_extra.xml"):
 
-            os.system("cp /tmp/cyberfhd/version %sSetupCyberFHD/version" % (pluginpath))
-# install plugin
-            os.system("cp /tmp/cyberfhd/plugin.py %sSetupCyberFHD/plugin.py" % (pluginpath))
-            os.system("cp /tmp/cyberfhd/ruSetupCyberFHD.mo %sSetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
-            os.system("cp /tmp/cyberfhd/deSetupCyberFHD.mo %sSetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo" % (pluginpath))
-# install skin
-            os.system("cp /tmp/cyberfhd/skin.xml %sCyberFHD/skin.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_style.xml %sCyberFHD/skin_style.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_templates.xml %sCyberFHD/skin_templates.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_templates_style.xml %sCyberFHD/skin_templates_style.xml" % (skinpath))
-            os.system("cp /tmp/cyberfhd/skin_extra.xml %sCyberFHD/skin_extra.xml" % (skinpath))
-# end
-            os.system("rm -rf /tmp/cyberfhd/")
-            self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
+    def download_skin(self):
+        os.system("mkdir /tmp/cyberfhd")
+        archiv_path = os.path.join(tmp_path, archiv)
+# download plugin
+        urlretrieve(Homepage, archiv_path)
+        if fileExists(archiv_path):
+            plugin = 'CyberFHD-master/python'
+            skin = "CyberFHD-master/share"
+            with zipfile.ZipFile(archiv_path, "r") as z:
+                for name in z.namelist():
+                    if (name.startswith(skin) or name.startswith(plugin) )and not name.endswith("/"):
+                        target_path = name.replace("CyberFHD-master/share", "/usr/share", 1).replace("CyberFHD-master/python", "/usr/lib/enigma2/python")
+                        os.makedirs(os.path.dirname(target_path), exist_ok=True)
+                        with z.open(name) as src, open(target_path, "wb") as dst:
+                            dst.write(src.read())
+                os.system("rm -rf /tmp/cyberfhd/")
+                self.session.openWithCallback(self.restart, MessageBox, _("Do you want to restart the GUI now ?"), MessageBox.TYPE_YESNO)
         else:
             self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
+
 
     def install_components(self):
         if fileExists("/tmp/cyberfhd/AlwaysTrue.py" \
@@ -999,21 +992,6 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         else:
             self.session.open(MessageBox, (_("Download failed, check your internet connection !!!")), MessageBox.TYPE_INFO, timeout=10)
 
-    def download_skin(self):
-        os.system("mkdir /tmp/cyberfhd")
-# download plugin
-        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version".format(git), "/tmp/cyberfhd/version")
-        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/plugin.py".format(git), "/tmp/cyberfhd/plugin.py")
-        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/ru/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/ruSetupCyberFHD.mo")
-        urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/locale/de/LC_MESSAGES/SetupCyberFHD.mo".format(git), "/tmp/cyberfhd/deSetupCyberFHD.mo")
-# download skin
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin.xml".format(git), "/tmp/cyberfhd/skin.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_style.xml".format(git), "/tmp/cyberfhd/skin_style.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates.xml".format(git), "/tmp/cyberfhd/skin_templates.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_templates_style.xml".format(git), "/tmp/cyberfhd/skin_templates_style.xml")
-        urlretrieve("{}/CyberFHD/master/share/enigma2/CyberFHD/skin_extra.xml".format(git), "/tmp/cyberfhd/skin_extra.xml")
-# end
-        self.install_skin()
 
     def download_components(self):
         os.system("mkdir /tmp/cyberfhd")
