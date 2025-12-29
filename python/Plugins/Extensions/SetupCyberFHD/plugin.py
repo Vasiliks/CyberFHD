@@ -106,7 +106,7 @@ addFont("/usr/share/enigma2/CyberFHD/fonts/Roboto-Regular.ttf", "SkinGlobal", 10
 
 SKIN = "https://github.com/Vasiliks/CyberFHD/archive/refs/heads/master.zip"
 COMPONENTS = "https://github.com/Vasiliks/enigma2-components/archive/refs/heads/master.zip"
-pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/"
+pluginpath = os.path.dirname(os.path.realpath(__file__))
 componentspath = "/usr/lib/enigma2/python/Components/"
 tmp_path = "/tmp/cyberfhd/"
 archiv = "CyberFHD.zip"
@@ -829,7 +829,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         try:
             version += "git {}".format(get_commit_count())
         except:
-            for text in open("%sSetupCyberFHD/version" % (pluginpath)).readlines()[1]:
+            for text in open("%s/version" % (pluginpath)).readlines()[1]:
                 version += text
         self["info_sk"].setText(version)
 
@@ -856,7 +856,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             self["info_com"] = Label(_("No install components skin !!! \nPress yellow button to install !!!"))
         else:
             version = ""
-            for text in open("/tmp/version").readlines()[3]:
+            for text in open("%s/version" % (pluginpath)).readlines()[3]:
                 version += text
             self["info_com"].setText(version)
 
