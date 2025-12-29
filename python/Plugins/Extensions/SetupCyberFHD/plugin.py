@@ -1,4 +1,4 @@
-# -*- coding: UTF-8 -*-
+﻿# -*- coding: UTF-8 -*-
 
 # Plugin - Setup CyberFHD
 # Developer - Sirius
@@ -20,10 +20,11 @@
 # along with this program. If not, see <http://www.gnu.org/licenses/>.
 
 from . import _
-import gettext
 import os
+import re
+from six.moves.urllib.request import urlopen, Request
+from six.moves.urllib.error import HTTPError, URLError
 import zipfile
-from six.moves.urllib.request import urlretrieve
 from enigma import addFont
 from skin import parseColor
 from Plugins.Plugin import PluginDescriptor
@@ -38,11 +39,64 @@ from Components.config import config, ConfigSubsection, getConfigListEntry, Conf
 from Tools.Directories import fileExists
 
 
+def write_log(value="", value2=""):
+    with open("/tmp/cyber.log", 'a') as f:
+        f.write('{} {}\n'.format(value, value2))
+
+
+def SearchReplaceWrite(skinPartSearchAndReplace, source, target):
+    inFile = open(source, "r")
+    file_lines = inFile.readlines()
+    inFile.close()
+    outFile = open(target, "w")
+    for skinLine in file_lines:
+        for item in skinPartSearchAndReplace:
+            skinLine = skinLine.replace(item[0], item[1])
+        outFile.writelines(skinLine)
+    outFile.close()
+
+
+def get_commit_count():
+    url = "https://api.github.com/repos/Vasiliks/CyberFHD/commits?per_page=1"
+    return get_url(url)
+
+
+def get_url(url, infile=False):
+    request = Request(url, headers=headers)
+    try:
+        if infile:
+            with urlopen(request) as response, open(infile, "wb") as f:
+                f.write(response.read())
+            return
+        else:
+            response = urlopen(request)
+            link = response.headers.get("Link")
+            if link:
+                match = re.search(r'page=(\d+)>; rel="last"', link)
+                if match:
+                    return int(match.group(1))
+            return 1
+
+    except HTTPError as e:
+        if e.code == 403:
+            return "Error 403: access forbidden or GitHub API rate limit exceeded"
+        elif e.code == 404:
+            return "Error 404: repository not found"
+        else:
+            return "HTTP error {}: {}".format(e.code, e.reason)
+
+    except URLError as e:
+        return "Network error: {}".format(e.reason)
+
+
+headers = {
+        "User-Agent": "Python-urllib",
+        "Accept": "application/vnd.github.v3+json"
+    }
 addFont("/usr/share/enigma2/CyberFHD/fonts/Neuropol.ttf", "SkinTitles", 100, 1)
 addFont("/usr/share/enigma2/CyberFHD/fonts/LedCounter.ttf", "SkinIndication", 100, 1)
 addFont("/usr/share/enigma2/CyberFHD/fonts/Roboto-Regular.ttf", "SkinGlobal", 100, 1)
 
-git = "https://raw.githubusercontent.com/Vasiliks"
 SKIN = "https://github.com/Vasiliks/CyberFHD/archive/refs/heads/master.zip"
 COMPONENTS = "https://github.com/Vasiliks/enigma2-components/archive/refs/heads/master.zip"
 pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/"
@@ -72,23 +126,6 @@ components = [
     "Renderer/RendVolumeTextP.py",
     "Renderer/Watches.py"
     ]
-
-
-def write_log(value, value2=""):
-    with open("/tmp/cyber.log", 'a') as f:
-        f.write('{} {}\n'.format(value, value2))
-
-
-def SearchReplaceWrite(skinPartSearchAndReplace, source, target):
-    inFile = open(source, "r")
-    file_lines = inFile.readlines()
-    inFile.close()
-    outFile = open(target, "w")
-    for skinLine in file_lines:
-        for item in skinPartSearchAndReplace:
-            skinLine = skinLine.replace(item[0], item[1])
-        outFile.writelines(skinLine)
-    outFile.close()
 
 
 colorsetting = [
@@ -501,7 +538,7 @@ SKIN_CYBERFHD = """
         <widget source="Title" render="Label" position="80,96" size="1500,44" font="SkinTitles; 40" foregroundColor="#10ffd700" backgroundColor="#50000000" halign="left" transparent="1" />
         <widget name="config" position="90,200" size="980,635" scrollbarMode="showNever" itemHeight="35" font="SkinGlobal; 25" backgroundColor="#50000000" backgroundColorSelected="#50696969" transparent="1" />
         <widget name="info_com" position="340,895" size="1000,60" font="SkinGlobal; 25" foregroundColor="#10a9a9a9" backgroundColor="#50000000" halign="left" valign="top" transparent="1" />
-        <widget name="info_sk" position="340,960" size="1000,30" font="SkinGlobal; 25" foregroundColor="#10a9a9a9" backgroundColor="#50000000" halign="left" valign="center" transparent="1" />
+        <widget name="info_sk" position="340,955" size="1000,30" font="SkinGlobal; 25" foregroundColor="#10a9a9a9" backgroundColor="#50000000" halign="left" valign="center" transparent="1" />
 
     <!-- Preview Layer -->
         <eLabel position="1098,363" size="742,484" backgroundColor="#50ffffff" zPosition="-12" />
@@ -571,7 +608,6 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         self.session = session
         self.skin = SKIN_CYBERFHD
         ConfigListScreen.__init__(self, [], session=self.session, on_change=self.previewSkin)
-
         self["actions"] = ActionMap(["OkCancelActions", "ColorActions", "DirectionActions", "EPGSelectActions"], {
             "ok": self.save,
             "cancel": self.exit,
@@ -617,7 +653,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         self["info_com"] = Label(_(" "))
 
         self.version()
-        self.infosk()
+        self.infocom()
         self.onLayoutFinish.append(self.previewSkin)
 
     def createSetup(self):
@@ -782,18 +818,16 @@ class SetupCyberFHD(ConfigListScreen, Screen):
         self["fgcolor5a"].instance.setForegroundColor(parseColor(self.fgColor5))
 
     def version(self):
+        version = _("Skin version: ")
         try:
-            urlretrieve("{}/CyberFHD/master/python/Plugins/Extensions/SetupCyberFHD/version".format(git), "/tmp/version")
-            self.infocom()
+            version += "git {}".format(get_commit_count())
         except:
-            pass
+            for text in open("%sSetupCyberFHD/version" % (pluginpath)).readlines()[1]:
+                version += text
+        self["info_sk"].setText(version)
 
     def infocom(self):
-        version = ""
-        if fileExists("/usr/lib/enigma2/python/Plugins/Extensions/WeatherMSN/plugin.pyc") \
-            and not fileExists("{}Converter/MSNWeather2.py".format(componentspath)):
-            self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
-        elif not fileExists("{}Converter/AlwaysTrue.py".format(componentspath)) \
+        if not fileExists("{}Converter/AlwaysTrue.py".format(componentspath)) \
             or not fileExists("{}Converter/AC3DownMixStatus.py".format(componentspath)) \
             or not fileExists("{}Converter/CaidInfo2.py".format(componentspath)) \
             or not fileExists("{}Converter/CamdInfo3.py".format(componentspath)) \
@@ -812,23 +846,12 @@ class SetupCyberFHD(ConfigListScreen, Screen):
             or not fileExists("{}Renderer/PiconUni.py".format(componentspath)) \
             or not fileExists("{}Renderer/RendVolumeTextP.py".format(componentspath)) \
             or not fileExists("{}Renderer/Watches.py".format(componentspath)):
-            self["info_com"] = Label(_("No install components skin !!! \nPress blue button to install !!!"))
+            self["info_com"] = Label(_("No install components skin !!! \nPress yellow button to install !!!"))
         else:
+            version = ""
             for text in open("/tmp/version").readlines()[3]:
                 version += text
             self["info_com"].setText(version)
-            return version
-
-    def infosk(self):
-        pluginpath = "/usr/lib/enigma2/python/Plugins/Extensions/"
-        version = ""
-        try:
-            for text in open("%sSetupCyberFHD/version" % (pluginpath)).readlines()[1]:
-                version += text
-            self["info_sk"].setText(version)
-            return version
-        except:
-            return ""
 
     def createSkin(self):
         radIn = cyber.cornerradius.value
@@ -939,7 +962,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
     def download_skin(self):
         os.system("mkdir /tmp/cyberfhd")
         archiv_path = os.path.join(tmp_path, archiv)
-        urlretrieve(SKIN, archiv_path)
+        get_url(SKIN, archiv_path)
         if fileExists(archiv_path):
             plugin = "CyberFHD-master/python/Plugins/Extensions/SetupCyberFHD/"
             skin = "CyberFHD-master/share/enigma2/CyberFHD/"
@@ -959,7 +982,7 @@ class SetupCyberFHD(ConfigListScreen, Screen):
     def download_components(self):
         os.system("mkdir /tmp/cyberfhd")
         archiv_path = os.path.join(tmp_path, archiv)
-        urlretrieve(COMPONENTS, archiv_path)
+        get_url(COMPONENTS, archiv_path)
         if fileExists(archiv_path):
             component = "enigma2-components-master/python/Components"
             with zipfile.ZipFile(archiv_path, "r") as z:
