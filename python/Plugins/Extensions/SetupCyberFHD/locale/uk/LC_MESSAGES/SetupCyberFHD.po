@@ -1,0 +1,222 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Setup skin Skin CyberFHD\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2025-12-29 21:00+0100\n"
+"Last-Translator: Vasiliks\n"
+"Language-Team: \n"
+"Language: uk\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Generator: Poedit 3.8\n"
+
+msgid "Setup CyberFHD"
+msgstr "Установки CyberFHD"
+
+msgid "Setup skin CyberFHD"
+msgstr "Налаштування скіну CyberFHD"
+
+msgid "Font:"
+msgstr "Шрифт:"
+
+msgid "Color setting:"
+msgstr "Налаштування кольорів:"
+
+msgid "Background 1 color:"
+msgstr "Колір фону 1:"
+
+msgid "Background 2 color:"
+msgstr "Колір фону 2:"
+
+msgid "Background 3 color:"
+msgstr "Колір фону 3:"
+
+msgid "Background 2 corner:"
+msgstr "Куточок фону 2:"
+
+msgid "Background 3 corner:"
+msgstr "Куточок фону 3:"
+
+msgid "Progress color:"
+msgstr "Колір прогресу:"
+
+msgid "Cursor color:"
+msgstr "Колір курсору:"
+
+msgid "Title text color:"
+msgstr "Колір тексту заголовка:"
+
+msgid "Main text color:"
+msgstr "Колір основного тексту:"
+
+msgid "Additional text color:"
+msgstr "Колір додаткового тексту:"
+
+msgid "Indication text color:"
+msgstr "Колір тексту індикації:"
+
+msgid "Icon`s color:"
+msgstr "Колір іконок:"
+
+msgid "Background transparent:"
+msgstr "Прозорість фону:"
+
+msgid "Text transparent:"
+msgstr "Прозорість тексту:"
+
+msgid "Channel number in infobar:"
+msgstr "Номер каналу в інфобарі:"
+
+msgid "Tuner panel in infobar:"
+msgstr "Панель тюнера в інфобарі:"
+
+msgid "EPG panel in secondinfobar:"
+msgstr "Панель EPG в другому інфобарі:"
+
+msgid "Crypted panel in secondinfobar:"
+msgstr "Панель кодувань в другому інфобарі:"
+
+msgid "Info panel in secondinfobar:"
+msgstr "Панель додаткової інформації в другому інфобарі:"
+
+msgid "Show CI in info panel:"
+msgstr "Відображати CI в панелі додаткової інформації:"
+
+msgid "Weather panel in secondinfobar:"
+msgstr "Панель погоди в другому інфобарі:"
+
+msgid "Poster in movieinfobar:"
+msgstr "Постер в інфобарі медіаплеєру:"
+
+msgid "Info panel in movieinfobar:"
+msgstr "Панель інформації в інфобарі медіаплеєру:"
+
+msgid "Weather panel in movieinfobar:"
+msgstr "Панель погоди в інфобарі медіаплеєру:"
+
+msgid "Progress mode:"
+msgstr "Вибір стилю прогресу:"
+
+msgid "Scrollbar in menu:"
+msgstr "Показати скролл в меню:"
+
+msgid "Userbouquet name in channel selection:"
+msgstr "Назва букету в селекторі каналів:"
+
+msgid "Picon panel in channel selection:"
+msgstr "Панель піконів в селекторі каналів:"
+
+msgid "Channel info panel in channel selection:"
+msgstr "Панель інформації про канал в селекторі каналів:"
+
+msgid "EPG panel in channel selection:"
+msgstr "Панель EPG в селекторі каналів:"
+
+msgid "Userbouquet name in radio channel selection:"
+msgstr "Назва букету в селекторі каналів радіо:"
+
+msgid "Description panel in movie selection:"
+msgstr "Панель опису в селекторі записів:"
+
+msgid ""
+"No install components skin !!! \n"
+"Press yellow button to install !!!"
+msgstr ""
+"Не встановлено компоненти скіну !!! \n"
+"Натисніть жовту кнопку для встановлення !!!"
+
+msgid "Do you want to restart the GUI now ?"
+msgstr "Ви бажаєте перезавантажити GUI зараз ?"
+
+msgid "Download failed, check your internet connection !!!"
+msgstr "Завантаження не вдалося, перевірте підключення до інтернету !!!"
+
+msgid "Default"
+msgstr "За умовчанням"
+
+msgid "Update CyberFHD"
+msgstr "Оновити CyberFHD"
+
+msgid "Corner radius:"
+msgstr "Радіус заокруглення:"
+
+msgid "Rounded"
+msgstr "Заокруглений"
+
+msgid "Improved"
+msgstr "Покращенний"
+
+msgid "Fonts"
+msgstr "Шрифти"
+
+msgid "Style"
+msgstr "Стилі"
+
+msgid "Save"
+msgstr "Зберегти"
+
+msgid "Download components"
+msgstr "Завантажити компоненти"
+
+msgid "Channel Selection"
+msgstr "Вибір каналів"
+
+msgid "Now, Next"
+msgstr "Зараз, Потім"
+
+msgid "Now, 5 Programs"
+msgstr "Зараз, 5 Програм"
+
+msgid "10 Programs"
+msgstr "10 Програм"
+
+msgid "Circle light"
+msgstr "Світлий круг"
+
+msgid "Circle dark"
+msgstr "Темний круг"
+
+msgid "Compass light"
+msgstr "Світлий компас"
+
+msgid "Compass dark"
+msgstr "Темний компас"
+
+msgid "Classic"
+msgstr "Класичні"
+
+msgid "Modern"
+msgstr "Сучасні"
+
+msgid "Style weather icons:"
+msgstr "Стиль погодних піктограм:"
+
+msgid "Style wind direction icons:"
+msgstr "Стиль піктограм напрямку ветру:"
+
+msgid ""
+"Skin CyberFHD\n"
+"Developer: Sirius0103 \n"
+"Homepage: www.gisclub.tv \n"
+"Github: www.github.com/Sirius0103 \n"
+"\n"
+"Donate: \n"
+"R460680746216 \n"
+"Z395874509364 \n"
+"E284580190260"
+msgstr ""
+"Скин CyberFHD\n"
+"Разработчик: Sirius0103 \n"
+"Homepage: www.gisclub.tv \n"
+"Github: www.github.com/Sirius0103 \n"
+"\n"
+"Поблагодарить: \n"
+"R460680746216 \n"
+"Z395874509364 \n"
+"E284580190260"
+
+msgid "Skin version: "
+msgstr "Версія скіна: "
