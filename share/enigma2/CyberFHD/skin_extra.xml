@@ -68,7 +68,7 @@
 		<panel name="TemplatesTitle" />
 		<widget name="config" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
 		<widget name="info_com" position="340,895" size="1000,60" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="top" transparent="1" />
-		<widget name="info_sk" position="340,960" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="center" transparent="1" />
+		<widget name="info_sk" position="340,955" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="center" transparent="1" />
 		<!-- Layer Preview -->
 		<eLabel position="1098,363" size="742,484" backgroundColor="background3" zPosition="-12" />
 		<eLabel position="1100,365" size="740,480" backgroundColor="background1" zPosition="-11" />
@@ -108,7 +108,7 @@
 		<panel name="TemplatesTitle" />
 		<widget name="config" position="90,200" size="980,630" itemHeight="35" font="Global; 25" backgroundColor="background1" backgroundColorSelected="background5" scrollbarMode="showNever" scrollbarWidth="10" scrollbarSliderForegroundColor="background4" scrollbarSliderBorderColor="background3" transparent="1" />
 		<widget name="info_com" position="340,895" size="1000,60" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="top" transparent="1" />
-		<widget name="info_sk" position="340,960" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="center" transparent="1" />
+		<widget name="info_sk" position="340,955" size="1000,30" font="Global; 25" foregroundColor="color3" backgroundColor="background1" halign="left" valign="center" transparent="1" />
 		<!-- Layer Preview -->
 		<eLabel position="1098,363" size="742,484" backgroundColor="background3" zPosition="-12" />
 		<eLabel position="1100,365" size="740,480" backgroundColor="background1" zPosition="-11" />
