@@ -7622,9 +7622,8 @@ self.instance.move(ePoint(int(deskwidth - newwidth)//2,int(deskheight - newheigh
                     setPress="690,74,280,22,2"
          />
         <panel name="TemplatesButtonsKey" />
-        <panel name="TemplatesClock" /> 
-        <widget name="meteogram" position="center,center" size="1400,600" zPosition="5" transparent="0" />
-        <widget name="date" position="360,900" size="600,32" font="Titles;28" foregroundColor="color1" backgroundColor="background1" halign="left" transparent="1" />
+        <panel name="TemplatesClock" />
+        <widget name="date" position="360,900" size="700,32" font="Titles;28" foregroundColor="color1" backgroundColor="background1" halign="left" transparent="1" />
         <widget name="updated" position="800,955" size="550,30" font="Console;20" foregroundColor="color3" backgroundColor="background1" halign="right" transparent="1" />
         <widget name="city" position="1200,200" size="300,155" font="Titles;24" foregroundColor="#eeffff" transparent="1" halign="left" valign="center" />
         <widget name="cityinfo" position="1340,200" size="490,155" font="Titles;24" foregroundColor="#ffffee" transparent="1" halign="right" valign="center" />
