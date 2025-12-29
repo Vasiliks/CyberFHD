@@ -64,12 +64,15 @@ def get_commit_count():
 def get_url(url, infile=False):
     request = Request(url, headers=headers)
     try:
+        response = urlopen(request)
         if infile:
-            with urlopen(request) as response, open(infile, "wb") as f:
+            f = open(infile, "wb")
+            try:
                 f.write(response.read())
+            finally:
+                f.close()
             return
         else:
-            response = urlopen(request)
             link = response.headers.get("Link")
             if link:
                 match = re.search(r'page=(\d+)>; rel="last"', link)
@@ -87,6 +90,10 @@ def get_url(url, infile=False):
 
     except URLError as e:
         return "Network error: {}".format(e.reason)
+
+    finally:
+        if response:
+            response.close()
 
 
 headers = {
